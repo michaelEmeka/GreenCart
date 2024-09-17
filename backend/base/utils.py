@@ -1,0 +1,46 @@
+from base.models import ItemTag
+
+waste_types = [
+    "Plastic Waste",
+    "Recyclable Waste",
+    "Organic Waste",
+    "Hazardous Waste",
+    "Electronic Waste (E-Waste)",
+    "Textile Waste",
+    "Metal Waste",
+    "Glass Waste",
+    "Wood Waste",
+    "Chemical Waste",
+    "Construction Waste",
+    "Industrial Waste",
+    "Household Waste",
+    "Medical Waste",
+    "Food Waste",
+    "Green Waste",
+    "Packaging Waste",
+    "Single-Use Plastic Waste",
+    "Compostable Waste",
+    "Agricultural Waste",
+    "Biomedical Waste",
+    "Radioactive Waste",
+    "Municipal Solid Waste (MSW)",
+    "Inert Waste",
+    "Mining Waste",
+    "Marine Debris",
+    "Toxic Waste",
+    "Sludge Waste",
+    "Automotive Waste",
+    "Sewage Waste",
+    "Ash Waste",
+    "Grease Waste",
+    "Fossil Fuel Waste",
+    "Rubber Waste",
+    "Ceramic Waste",
+    "Leather Waste",
+    "Fly Ash Waste",
+    "Pharmaceutical Waste",
+    "Non-Recyclable Waste"
+]
+for tag in waste_types:
+    ItemTag.objects.create(tag_name=tag)
+    print("Done!")
