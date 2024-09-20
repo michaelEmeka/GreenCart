@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework.request import Request
 from .models import Item, ItemTag
 
-class ListCreateItemSerializer(serializers.ModelSerializer):
+class ListItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ["item_name", "item_price", "date_added"]
@@ -85,14 +85,25 @@ class UpdateItemSerializer(serializers.ModelSerializer):
         instance.item_price = validated_data["item_price"]
         tags = validated_data.get("tags")
         
-        print(validated_data)
         #Remove unwanted tags
         for tag in instance.item_tags.all():
-            print(tag.tag_name)
             if tag.tag_name not in tags:
                 tag.items.remove(instance)
         #Add new tags
         for tag_name in tags:
-            ItemTag.objects.get(tag_name=tag_name).items.add(instance)
-        instance.save()
+            try:
+                ItemTag.objects.get(tag_name=tag_name).items.add(instance)
+            except (ItemTag.DoesNotExist, KeyError) as e:
+                print(e)
+                #return {"error": f"{tag_name} tag does not exist."}
+        #instance.save()
         return instance
+    
+class DeleteItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Item
+
+class BaseTagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ItemTag
+        fields = "__all__"

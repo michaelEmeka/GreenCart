@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework import serializers
-from rest_framework.generics import ListCreateAPIView, GenericAPIView
+from rest_framework.generics import ListAPIView, ListCreateAPIView, GenericAPIView, DestroyAPIView, UpdateAPIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Item, ItemTag
@@ -15,10 +15,10 @@ from .serializers import *
 #Add Tag
 #Update Tag
 #Delete Tag
-class ListCreateItemsView(ListCreateAPIView):
+class ListCreateItemsView(ListAPIView):
     permission_classes = [AllowAny]
     queryset = Item.objects.all()
-    serializer_class = ListCreateItemSerializer
+    serializer_class = ListItemSerializer
 
 class CreateItemView(GenericAPIView):
     def post(self, request):
@@ -46,7 +46,7 @@ class UpdateItemView(GenericAPIView):
     '''
     Update Item Details
     '''
-    def post(self, request, *args, **kwargs):
+    def put(self, request, *args, **kwargs):
         pk = kwargs["pk"]
         if not Item.objects.filter(id=pk).exists():
             return Response({"message": "object does not exist"}, status=status.HTTP_204_NO_CONTENT)
@@ -64,3 +64,19 @@ class UpdateItemView(GenericAPIView):
         serializer = GetItemSerializer(item)
         #serializer.is_valid()
         return Response(serializer.data)
+
+class DeleteItemView(DestroyAPIView):
+    queryset = Item.objects.all()
+    serializer_class = DeleteItemSerializer
+
+class ListCreateTagView(ListCreateAPIView):
+    queryset = ItemTag.objects.all()
+    serializer_class = BaseTagSerializer
+
+class UpdateTagView(UpdateAPIView):
+    queryset = ItemTag.objects.all()
+    serializer_class = BaseTagSerializer
+    
+class DeleteTagView(DestroyAPIView):
+    queryset = ItemTag.objects.all()
+    serializer_class = BaseTagSerializer
