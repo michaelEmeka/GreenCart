@@ -3,9 +3,13 @@ from rest_framework.request import Request
 from .models import Item, ItemTag
 
 class ListItemSerializer(serializers.ModelSerializer):
+    tags = serializers.SerializerMethodField()
     class Meta:
         model = Item
-        fields = ["item_name", "item_price", "date_added"]
+        fields = ["item_name", "item_price", "date_added", "tags"]
+    
+    def get_tags(self, obj):
+        return [tag.tag_name for tag in obj.item_tags.all()]
 
 class CreateItemSerializer(serializers.ModelSerializer):
     tags = serializers.ListField(child=serializers.CharField())
