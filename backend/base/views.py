@@ -5,7 +5,7 @@ from rest_framework.generics import ListCreateAPIView, GenericAPIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Item, ItemTag
-from .serializers import ListCreateItemSerializer, CreateItemSerializer, GetItemSerializer
+from .serializers import *
 
 #List Items
 #Add Item
@@ -37,16 +37,30 @@ class GetItemView(GenericAPIView):
         pk = self.kwargs["pk"]
         if not Item.objects.filter(id=pk).exists():
             return Response({"message": "object does not exist"}, status=status.HTTP_204_NO_CONTENT)
-        
         item = Item.objects.get(id=pk)
-        serializer = GetItemSerializer(item, context={"id": pk})
+        serializer = GetItemSerializer(item)
         #serializer.is_valid()
         return Response(serializer.data)
         
+class UpdateItemView(GenericAPIView):
+    '''
+    Update Item Details
+    '''
+    def post(self, request, *args, **kwargs):
+        pk = kwargs["pk"]
+        if not Item.objects.filter(id=pk).exists():
+            return Response({"message": "object does not exist"}, status=status.HTTP_204_NO_CONTENT)
+        item = Item.objects.get(id=pk)
+        serializer = UpdateItemSerializer(item,data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
         
-        
-        
-# class ListTagsView(ListAPIView):
-#     permission_classes = [AllowAny]
-#     queryset = ItemTag.objects.all()
-#     serializer_class = ListItemTagsSerializer
+    def get(self, request, *args, **kwargs):
+        pk = self.kwargs["pk"]
+        if not Item.objects.filter(id=pk).exists():
+            return Response({"message": "object does not exist"}, status=status.HTTP_204_NO_CONTENT)
+        item = Item.objects.get(id=pk)
+        serializer = GetItemSerializer(item)
+        #serializer.is_valid()
+        return Response(serializer.data)
