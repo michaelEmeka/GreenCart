@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 50px;
+    padding: 20px 0;
+    gap: 5rem;
+    border-bottom: 1px solid #A3BFA1;
+}
+
+nav ul {
+    display: flex;
+    gap: 4rem;
+    width: 700px;
+    margin-left: -2rem;
+}
+
+nav ul li {
+    list-style: none;
+    color: #1C1C1C;
+}
+
+
+nav a{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: #1C1C1C;
+}
+
+nav ul li:hover {
+    color: #217103;
+}
+
+
+nav .cta a {
+    width: 150px;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+nav .cta .sign-up {
+    background-color: #A3BFA1;
+}
+
+nav .cta .login {
+    background-color: #217103;
+    color: white;
+}
