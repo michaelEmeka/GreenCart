@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_simplejwt.token_blacklist',
     'base',
     'users',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -102,6 +105,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#AUTH
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -126,3 +135,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "users.User"
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '1c38bbd04a27f1'
+EMAIL_HOST_PASSWORD = 'e0205727e1b525'
+EMAIL_PORT = '2525'
+DEFAULT_FROM_EMAIL = "todo.com"
+EMAIL_USE_TLS = True
