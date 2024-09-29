@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenCart</title>
+    <link rel="icon" src="#" />
+
+    <!--StyleSheets-->
+    <link rel="stylesheet" href="./about.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <nav>
+
+            <div id="menu">
+
+                <div id="logo-container">
+
+                    <a href="/frontend/home.html">
+                        <img id="logo" src="images/logo.png" alt="GreenCart" loading="eager" />
+                    </a>
+
+                </div>
+
+                <!--Nav Menu-->
+                <ul id="nav-links">
+
+                    <li class="nav-link active">
+
+                        <a href="/frontend/about-us/about.html">About Us</a>
+
+                    </li>
+
+                    <li class="nav-link">
+
+                        <a href="/frontend/how-it-works/how.html">How It Works</a>
+
+                    </li>
+
+                    <li class="nav-link">
+
+                        <a href="/frontend/blog/blog.html">Blog</a>
+
+                    </li>
+
+                    <li class="nav-link">
+
+                        <a href="/frontend/contact-us/contact.html">Contact Us</a>
+
+                    </li>                        
+                    
+                </ul>
+
+            </div>
+
+            <div id="user-section">
+
+                <button type="button" id="sign-up">Sign Up</button>
+
+                <button type="button" id="login">Login</button>
+
+            </div>
+
+                
+        </nav>
+
+        <section id="main-section">
+
+            <h2>
+                Why Green<span>Cart</span>?
+            </h2>
+
+            <p>
+
+                At GreenCart, we are dedicated to reducing waste and promoting sustainability. 
+                <br />
+                We connect businesses that have wastes with those who can use it, creating a circular economy that benefits everyone. 
+                <br />
+                Our mission is to make recycling easy, profitable, and impactful. 
+
+            </p>
+
+
+            <button type="button" id="main-button">
+
+                <p>Turn Waste Into Profit</p>
+
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_185_24)">
+                    <path d="M17 12V11.91C16.9954 11.814 16.9752 11.7194 16.94 11.63C16.9133 11.5614 16.8762 11.4973 16.83 11.44C16.8035 11.3944 16.7734 11.3509 16.74 11.31L13.88 8.31001C13.7894 8.2148 13.6809 8.13837 13.5608 8.08509C13.4406 8.0318 13.3111 8.0027 13.1797 7.99945C12.9144 7.99289 12.6573 8.09201 12.465 8.27501C12.2727 8.45801 12.161 8.7099 12.1544 8.97526C12.1479 9.24062 12.247 9.49773 12.43 9.69001L13.66 11H8C7.73478 11 7.48043 11.1054 7.29289 11.2929C7.10536 11.4804 7 11.7348 7 12C7 12.2652 7.10536 12.5196 7.29289 12.7071C7.48043 12.8947 7.73478 13 8 13H13.59L12.29 14.29C12.1963 14.383 12.1219 14.4936 12.0711 14.6154C12.0203 14.7373 11.9942 14.868 11.9942 15C11.9942 15.132 12.0203 15.2627 12.0711 15.3846C12.1219 15.5064 12.1963 15.617 12.29 15.71C12.383 15.8037 12.4936 15.8781 12.6154 15.9289C12.7373 15.9797 12.868 16.0058 13 16.0058C13.132 16.0058 13.2627 15.9797 13.3846 15.9289C13.5064 15.8781 13.617 15.8037 13.71 15.71L16.71 12.71C16.7999 12.6179 16.8713 12.5092 16.92 12.39C16.9725 12.2667 16.9997 12.1341 17 12Z" fill="white"/>
+                    <path d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.6868 21.7413 9.38642 21.2388 8.17317C20.7363 6.95991 19.9997 5.85752 19.0711 4.92893C18.1425 4.00035 17.0401 3.26375 15.8268 2.7612C14.6136 2.25866 13.3132 2 12 2ZM12 20C10.4178 20 8.87104 19.5308 7.55544 18.6518C6.23985 17.7727 5.21447 16.5233 4.60897 15.0615C4.00347 13.5997 3.84504 11.9911 4.15372 10.4393C4.4624 8.88743 5.22433 7.46197 6.34315 6.34315C7.46197 5.22433 8.88743 4.4624 10.4393 4.15372C11.9911 3.84504 13.5997 4.00346 15.0615 4.60896C16.5233 5.21447 17.7727 6.23984 18.6518 7.55544C19.5308 8.87103 20 10.4177 20 12C20 14.1217 19.1572 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20Z" fill="white"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_185_24">
+                    <rect width="24" height="24" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+                    
+            </button>
+
+            <div id="main-image">
+
+                <img
+                    src="./images/waste-image.png"
+                    alt="Turn Your Waste Into Profit"
+                    loading="lazy"
+                 />
+
+            </div>
+
+        </section>
+
+        <footer></footer>
+
+    </body>
+
+</html>
