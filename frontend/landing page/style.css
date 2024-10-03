@@ -46,7 +46,9 @@ nav ul li a:hover, nav ul li a:active {
     transition: ease-in-out 500ms;
 }
 
-
+nav .active {
+    color: #FFD700;
+}
 
 nav .cta a {
     border: none;
@@ -487,10 +489,15 @@ nav #hambugerbtn .bar {
 
 .footerDiv .aboutUs ul li{
     margin: 10px ;
-    list-style: none;
+    list-style: disc;
+    margin-left: 20px;
     font-size: 14px;
     font-weight: 400;
     
+}
+
+.footerDiv .aboutUs ul li::marker {
+    color: #217103;
 }
 
 .footerDiv .aboutUs ul li a{
@@ -501,6 +508,13 @@ nav #hambugerbtn .bar {
     
 }
 
+.footerDiv .ContactUs label {
+    font-size: 14px;
+    text-align: left;
+    line-height: 26px;
+    font-weight: 500;
+    color: #1C1C1C;
+}
 
 .footerDiv .ContactUs input {
     background-color: #D9D9D9;
@@ -508,6 +522,7 @@ nav #hambugerbtn .bar {
     border: none;
     outline: none;
     border-radius: 8px;
+    margin-top: 10px;
 }
 
 .footerDiv .ContactUs img {
