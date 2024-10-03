@@ -72,7 +72,6 @@ class PasswordResetConfirm(GenericAPIView):
         uidb64: encoded user id
         token: password reset token
     """
-
     def get(self, request, uidb64, token):
         try:
             user_id = smart_str(urlsafe_base64_decode(uidb64))
