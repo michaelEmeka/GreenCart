@@ -63,11 +63,11 @@ nav {
     color: var(--color6);
     font-size: 16px;
     font-weight: 500;
-    transition: 0.2s;
+    transition: ease-in-out 500ms;
 }
 
 .nav-link a:hover {
-    color: var(--color4);
+    color: #217103;
 }
 
 .nav-link.active a {
