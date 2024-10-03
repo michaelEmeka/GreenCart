@@ -91,6 +91,10 @@ nav {
     color: var(--color1);
 }
 
+#hamburger-button {
+    display: none;
+}
+
 
 /* Main Section */
 #main-section {
@@ -148,6 +152,8 @@ nav {
     width: 100%;
 }
 
+
+/*Footer Section*/
 footer {
     width: 100%;
     display: flex;

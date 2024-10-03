@@ -1,0 +1,402 @@
+:root {
+    --color1: #fff;
+    --color2: #217103;
+    --color3: #a3bfa1;
+    --color4: #FFD700;
+    --color5: #D9D9D9;
+    --color6: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    background-color: var(--color3);
+}
+
+nav {
+    width: 95%;
+    display: flex;
+    margin: 0 auto;
+    padding: 20px 0;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+
+#menu {
+    display: flex;
+    gap: 7rem;
+    justify-items: center;
+    align-items: center;
+}
+
+#logo-container {
+    width: 139px;
+    height: 32px;
+}
+
+#logo-container img {
+    width: 100%;
+    height: 100%;
+}
+
+#nav-links {
+    display: flex;
+    gap: 4rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.nav-link a {
+    color: var(--color6);
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.nav-link a:hover {
+    color: var(--color4);
+}
+
+.nav-link.active a {
+    color: var(--color4);
+}
+
+#user-section button {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+}
+
+#sign-up {
+    background-color: var(--color4);
+}
+
+#login {
+    background-color: var(--color2);
+    color: var(--color1);
+}
+
+#hamburger-button {
+    display: none;
+}
+
+
+/* Main Section */
+#main-section {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    background-color: var(--color1);
+    margin: 100px auto 50px;
+    padding: 40px 30px 40px 60px;
+}
+
+#main-section h2 {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 56px;
+    margin-left: -2px;
+}
+
+#main-section h2 span {
+    color: var(--color2);
+}
+
+form {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#main-section label {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 32px;
+    text-align: left;
+    color: #1C1C1C;
+}
+
+#main-section input {
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #D9D9D9;
+    color: #1C1C1C;
+    font-weight: 500;
+    width: 300px;
+    padding: 20px;
+}
+
+.grid1 {
+    width: 65%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid1 div:nth-child(2),  .grid1 div:last-child {
+    margin-left: 5%;
+}
+
+.grid1 input {
+    height: 60px;
+}
+
+.grid2 {
+    width: 35%;
+}
+
+.grid2 input {
+    height: 170px;
+}
+
+
+/* Footer Section */
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    background-color: white;
+}
+
+#footer-head {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--color2);
+    padding: 32px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+#footer-head h2 {
+    color: var(--color1);
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 48px;
+    text-align: center;
+    max-width: 730px;
+}
+
+#footer-head button {
+    padding: 7px 15px;
+    background-color: var(--color4);
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#footer-head button p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 32px;
+    text-align: center;
+}
+
+#footer-main {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+}
+
+#footer-logo {
+    margin-left: -20px;
+    margin-bottom: 20px;
+}
+
+#business-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#business-info p, 
+#business-info label, 
+#business-info input, 
+.footer-link {
+    font-size: 14px;
+    text-align: left;
+    line-height: 26px;
+    font-weight: 500;
+    color: #1C1C1C;
+}
+
+.footer-part h3 {
+    color: var(--color2);
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.footer-part.about{
+    width: 250px;
+}
+
+.footer-part.about h3 {
+    color: var(--color6);
+}
+
+.footer-part.about p {
+    max-width: 270px;
+}
+
+#footer-links {
+    margin-top: 20px;
+}
+
+.footer-link {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.footer-link::marker {
+    color: var(--color2);
+}
+
+.footer-link a {
+    color: var(--color2);
+    font-weight: 500;
+}
+
+.footer-part.contact p{
+    margin-bottom: 10px;
+}
+
+.footer-part.contact p a{
+    color: var(--color4);
+}
+
+#social-links {
+    width: 175px;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+
+.footer-part.legal p {
+    margin-bottom: 10px;
+    min-width: 110px;
+}
+
+.footer-part.legal a {
+    font-weight: 500;
+    font-size: 14px;
+    color: #1C1C1C;
+}
+
+.footer-part.news p {
+    margin-bottom: 10px;
+}
+
+.footer-part.news input {
+    margin: 7px 0 10px;
+    background-color: #D9D9D9;
+    border: none;
+    height: 40px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+#copyright {
+    display: flex;
+    width: fit-content;
+    margin: 30px auto 5px;
+    justify-items: center;
+    align-items: center;
+}
+
+#copyright svg {
+    margin-right: 10px;
+}
+
+#copyright p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Mobile and Tablet View */
+@media screen and (max-width:1026px) {
+
+    #hamburger-button {
+        display: flex;
+        height: 21px;
+        width: 30px;
+        flex-direction: column;
+        justify-content: space-between;
+        justify-items: center;
+        align-items: center;
+    }
+
+    #hamburger-button div {
+        width: 100%;
+        height: 3px;
+        background-color: #1C1C1C;
+        border-radius: 8px;
+    }
+
+    #nav-links, #user-section {
+        display: none;
+    }
+
+    #main-section {
+        padding: 40px 50px;
+    }
+
+    .grid,
+    .grid div,
+    #main-section input {
+        width: 98%;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    .grid1 div:nth-child(2),  .grid1 div:last-child {
+        margin-left: 0;
+    }
+
+        
+    #business-info {
+        flex-direction: column;
+    }
+
+    #footer-logo {
+        margin-bottom: 0;
+    }
+
+    .footer-part {
+        margin-top: 25px;
+    }
+
+    .footer-part.about p {
+        width: 500px;
+    }
+
+    .footer-part.news input {
+        width: 32%;
+    }
+
+}
