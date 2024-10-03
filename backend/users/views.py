@@ -124,4 +124,6 @@ class TestView(GenericAPIView):
     permission_classes = [IsAuthenticated]
     
     def get(self, request):
-        return Response({"message": "Hi from backend"}, status=status.HTTP_200_OK)
+        user = User.objects.get(id=request.user.id)
+        
+        return Response({"message": f"Hi from backend, {user.business_name}"}, status=status.HTTP_200_OK)

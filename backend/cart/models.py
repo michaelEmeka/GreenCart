@@ -13,17 +13,17 @@ class Cart(models.Model):
         return total
 
     def __str__(self):
-        return str(self.id)
+        return self.user.business_name + "'s cart " + str(self.id)
 
 
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name="cart_items")
-    item = models.OneToOneField(Item, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
-    
+
     @property
     def get_cartitem_total(self):
         return self.item.item_price * self.quantity
-    
+
     def __str__(self):
-        return self.item.item_name
+        return self.cart.user.business_name + "\'s " + self.item.item_name
