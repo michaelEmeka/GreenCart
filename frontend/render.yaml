@@ -4,8 +4,8 @@ staticSite:
   publishDirectory: frontend/.
   routes:
     - src: /
-      dest: index.html
+      dest: /index.html
     - src: /about
-      dest: about-us/about.html
+      dest: /about-us/about.html
     - src: /contact
-      dest: contact-us/contact.html
+      dest: /contact-us/contact.html
