@@ -1,0 +1,11 @@
+version: 1
+staticSite:
+  name: GreenCart
+  publishDirectory: frontend/.
+  routes:
+    - src: /
+      dest: index.html
+    - src: /about
+      dest: about-us/about.html
+    - src: /contact
+      dest: contact-us/contact.html

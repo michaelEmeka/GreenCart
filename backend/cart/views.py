@@ -32,14 +32,12 @@ class ModifyCartItem(GenericAPIView):
         action = request.data.get("action")
         user_id = request.user.id
         user = User.objects.get(id=user_id)
-        # print(user_id)
+        
         if Item.objects.filter(id=pk).exists:
             item = Item.objects.get(id=pk)
             cart, created = Cart.objects.get_or_create(user=user, is_closed=False)
-            print(item)
+            
             if action == "increase":
-                print(item)
-                
                 cart_item, created = CartItem.objects.get_or_create(item=item, cart=cart)
                 if not created: 
                     if cart_item.quantity < cart_item.item.quantity:
@@ -60,8 +58,8 @@ class ModifyCartItem(GenericAPIView):
                     cart_item.quantity -=1
                     cart_item.save()
                     return Response({"message": "Item successfully removed from cart"})
-            else:
-                return Response({"message": "Invalid action"})
+            
+            return Response({"message": "Invalid action"})
 
         return Response({"message": "Item does not exist"})
 
