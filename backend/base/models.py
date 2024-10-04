@@ -15,7 +15,7 @@ class Item(models.Model):
     item_price = models.IntegerField(blank=False)
     date_added = models.DateTimeField(auto_now_add=True)
     is_sold = models.BooleanField(default=False)
-    #quantity = models.IntegerField(default=1)
+    quantity = models.IntegerField(default=1)
     item_tags = models.ManyToManyField(ItemTag,  related_name="items")
     
     def __str__(self):

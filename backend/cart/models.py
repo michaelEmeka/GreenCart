@@ -3,7 +3,7 @@ from users.models import User
 from base.models import Item
 
 class Cart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="carts")
     is_closed = models.BooleanField(default=False)
 
     def get_cart_total(self):
