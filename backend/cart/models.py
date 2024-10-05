@@ -27,3 +27,11 @@ class CartItem(models.Model):
 
     def __str__(self):
         return self.cart.user.business_name + "\'s " + self.item.item_name
+
+class Shipment(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name="orders")
+    address = models.CharField(max_length=100, null=True, blank=True)
+    is_success = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.address

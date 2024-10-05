@@ -78,3 +78,7 @@ class RemoveFromCart(GenericAPIView):
             cart_item.delete()
             return Response({"message": "Item successfully deleted from cart"})
         return Response({"message": "Item does not exist in cart"})
+
+class Checkout(GenericAPIView):
+    def post(self, request):
+        serializer = CheckoutSerializer(data=request.data)

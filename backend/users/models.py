@@ -10,6 +10,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.CharField(max_length=255, unique=True)
     business_name= models.CharField(max_length=30, blank=False)
+    address = models.CharField(max_length=30, blank=True, null=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_verified = models.BooleanField(default=False)
@@ -37,7 +38,6 @@ class OneTimePassword(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     code = models.CharField(max_length=6, unique=True)
     time_created = models.DateTimeField(default=timezone.now)
-    time_expired = models.DateTimeField(default=timezone.now() + timedelta(minutes=5))
 
     def __str__(self):
         return f"{self.user.business_name}-passcode"
@@ -45,7 +45,4 @@ class OneTimePassword(models.Model):
     @property
     def is_expired(self):
         current_time = timezone.now()
-        print("current_time: ", current_time)
-        print("created: ", self.time_expired)
-        print("expired: ", self.time_expired)
-        return current_time >= self.time_expired
+        return (current_time - self.time_expired).total_seconds() > 300
