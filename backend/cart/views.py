@@ -4,9 +4,10 @@ from rest_framework.response import Response
 # from rest_framework.status import status
 from .models import Cart, CartItem
 from base.models import Item
-from .serializers import defaultNull, ListOpenCartItemsSerializer
+from .serializers import defaultNull, ListOpenCartItemsSerializer, CheckoutSerializer
 from users.models import User
 from django.shortcuts import get_object_or_404
+
 
 
 
@@ -81,4 +82,12 @@ class RemoveFromCart(GenericAPIView):
 
 class Checkout(GenericAPIView):
     def post(self, request):
-        serializer = CheckoutSerializer(data=request.data)
+        serializer = CheckoutSerializer(data=request.data, context={"request": request})
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            print(serializer.data)
+            #send data to payment_gateway
+            #payment gateway returns payment link
+            #return payment link to user in json format
+            #trigger webhook to see if payment successful
+            return Response(serializer.data)

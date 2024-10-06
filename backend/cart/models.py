@@ -1,6 +1,7 @@
 from django.db import models
 from users.models import User
 from base.models import Item
+import uuid
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="carts")
@@ -28,10 +29,11 @@ class CartItem(models.Model):
     def __str__(self):
         return self.cart.user.business_name + "\'s " + self.item.item_name
 
-class Shipment(models.Model):
+class Checkout(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name="orders")
     address = models.CharField(max_length=100, null=True, blank=True)
     is_success = models.BooleanField(default=False)
+    transaction_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
 
     def __str__(self):
         return self.address

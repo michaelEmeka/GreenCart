@@ -9,12 +9,13 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.CharField(max_length=255, unique=True)
-    business_name= models.CharField(max_length=30, blank=False)
+    business_name = models.CharField(max_length=30, blank=False)
     address = models.CharField(max_length=30, blank=True, null=True)
+    phone = models.IntegerField(blank=True, null=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_verified = models.BooleanField(default=False)
-    date_joined=models.DateTimeField(auto_now_add=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
     interest_tags = models.ManyToManyField(ItemTag, related_name="users")
     
