@@ -34,6 +34,7 @@ class Checkout(models.Model):
     address = models.CharField(max_length=100, null=True, blank=True)
     is_success = models.BooleanField(default=False)
     transaction_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.address

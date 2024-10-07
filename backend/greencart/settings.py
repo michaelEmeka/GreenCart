@@ -145,9 +145,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "users.User"
 
+#Email Client
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = os.getenv("EMAIL_PORT")
 DEFAULT_FROM_EMAIL = "todo.com"
 EMAIL_USE_TLS = True
+
+#Cloudinary CDN
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.getenv("CDN_CLOUD_NAME"),
+    "API_KEY": os.getenv("CDN_API_KEY"),
+    "API_SECRET": os.getenv("CDN_API_SECRET"),
+}
+
+DEFAULT_FILE_STORAGE = os.getenv("DEFAULT_FILE_STORAGE")
+MEDIA_URL = "/media/"

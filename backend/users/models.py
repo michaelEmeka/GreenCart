@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from base.models import ItemTag
 from .managers import CustomUserManager
 from datetime import timedelta
 from django.utils import timezone
 from rest_framework_simplejwt.tokens import RefreshToken
+import base
+from django.apps import apps #to prevent circularr import
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -12,12 +13,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     business_name = models.CharField(max_length=30, blank=False)
     address = models.CharField(max_length=30, blank=True, null=True)
     phone = models.IntegerField(blank=True, null=True)
+    #image = models.CloudinaryField("image")
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_verified = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
-    interest_tags = models.ManyToManyField(ItemTag, related_name="users")
+    interest_tags = models.ManyToManyField("base.ItemTag", related_name="users")
     
     objects = CustomUserManager()
     USERNAME_FIELD = "email"
