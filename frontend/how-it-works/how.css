@@ -19,6 +19,7 @@
 
 button {
     cursor: pointer;
+    border: none;
 }
 
 body {
@@ -104,12 +105,121 @@ nav {
 }
 
 #main-section h2 {
-    font-size: 48px;
+    font-size: 56px;
     text-align: center;
 }
 
 #main-section h2 span {
     color: var(--color4);
+}
+
+#steps {
+    width: 100%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+}
+
+.step-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 30px;
+    margin: 0 auto;
+}
+
+.step {
+    padding: 35px 30px;
+    height: 325px;
+    border-radius: 8px;
+}
+
+.step1, 
+.step4 {
+    background-color: var(--color2);
+}
+
+.step2, 
+.step3 {
+    background-color: var(--color3);
+}
+
+.step1 {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.step0 {
+    width: 480px;
+    height: 370px;
+}
+
+.step0 img {
+    width: 100%;
+    height: 100%;
+}
+
+.step div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    justify-items: center;
+}
+
+.step1 div {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.step h3 {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.step p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1C1C1C;
+    line-height: 32px;
+    width: 237px;
+}
+
+.step1 p {
+    width: 427px;
+}
+
+.step1 h3, 
+.step1 p, 
+.step4 h3, 
+.step4 p {
+    color: var(--color1);
+}
+
+.step2 h3,
+.step3 h3 {
+    color: var(--color2);
+}
+
+.step-button {
+    width: 100px;
+    height: 48px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color1);
+    background-color: var(--color2);
+}
+
+.step1 .step-button,
+.step4 .step-button {
+    color: var(--color6);
+    background-color: var(--color4);
 }
 
 /*Footer Section*/
@@ -304,7 +414,46 @@ footer {
     #nav-links, #user-section {
         display: none;
     }
+
+    #steps {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .step-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        width: 100%;
+    }
     
+    .step {
+        width: 320px;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 10px;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .step p {
+        font-size: 14px;
+        width: 85%;
+        text-align: center;
+    }
+
+    .step1 {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .step1 div {
+        flex-direction: column;
+        gap: 15px;
+    }
+
     #business-info {
         flex-direction: column;
     }
