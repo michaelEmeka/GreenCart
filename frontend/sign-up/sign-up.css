@@ -1,0 +1,354 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #F5F5F5;
+}
+
+/* NAV SECTION */
+nav {
+    margin: 0 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    gap: 5rem;
+    border-bottom: 1px solid #A3BFA1;
+}
+
+nav ul {
+    display: flex;
+    gap: 4rem;
+    width: 700px;
+    margin-left: -2rem;
+}
+
+nav ul li {
+    list-style: none;
+    color: #1C1C1C;
+}
+
+
+nav a{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: #1C1C1C;
+}
+
+nav ul li a:hover, nav ul li a:active {
+    color: #217103;
+    transition: ease-in-out 500ms;
+}
+
+
+
+nav .cta a {
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+nav .cta .sign-up {
+     width: 111px;
+     margin-right: 5px;
+    background-color: #A3BFA1;
+
+}
+
+nav .cta .login {
+    width: 93px;
+    background-color: #217103;
+    color: white;
+}
+
+nav #hambugerbtn {
+    width: 30px;
+    height: 30px;
+    display: none;
+}
+
+nav #hambugerbtn .bar {
+    width: 25px;
+    height: 3px;
+    margin: 4px;
+    border-radius: 8px;
+    background-color: #1C1C1C;
+
+}
+
+
+/* SIGN-UP FORM */
+
+.form-container{
+    width: 33%;
+    margin: 70px auto;
+}
+
+.form-container h3{
+    font-size: 48px;
+    font-weight: 500;
+    color: #217103;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.form-container #sign-upForm label {
+    font-size: 20px;
+    font-weight: 400;
+    color: #1C1C1C;
+    margin: 20px 0;
+}
+
+.form-container #sign-upForm input {
+    margin: 10px 0;
+    padding: 12px;
+    width: 100%;
+    border: 2px solid #217103;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #1C1C1C;
+    outline: none;
+}
+
+.form-container form .user-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-container button {
+    width: 100%;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 12px;
+    color: #ffff;
+    background-color: #217103;
+    border: none;
+    border-radius: 8px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #A3BFA1;
+    color: #1C1C1C;
+    transition: ease-in-out 300ms;
+} 
+
+.form-container p {
+    text-align: center;
+    color: #1C1C1C;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.form-container p a {
+    text-decoration: none;
+    color: #217103;
+}
+
+
+
+/* form .checkbox {
+    position: relative;
+}
+
+form .checkbox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #ffff;
+    border: 1px solid #217103;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
+}
+
+.checkbox label::after {
+    content: " ";
+    position: relative;
+    top: 38%;
+    left: 33%;
+    width: 29%;
+    height: 2%;
+    opacity: 0;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: rotate(30deg);
+    transition: opacity 300ms ease;
+}
+
+.checkbox input {
+    visibility: hidden;
+}
+
+.checkbox input:checked + label {
+    background-color: transparent;
+    border-color: #217103;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.4);
+}
+
+.checkbox input:checked + label::after {
+    opacity: 1;
+}
+
+.checkbox */
+
+
+
+/* FOOTER  SECTION*/
+.footerDiv {
+    margin: 0 70px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.footerDiv h4 {
+    color: #217103;
+    font-weight: 500px;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.footerDiv .aboutUs {
+  width: 22%;
+}
+
+.footerDiv .aboutUs p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1C1C1C;
+    line-height: 32px;
+}
+
+.footerDiv .ContactUs p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1C1C1C;
+    line-height: 32px;
+}
+
+.footerDiv .ContactUs span {
+    color: #FFD700;
+}
+
+.footerDiv .aboutUs ul li{
+    margin: 10px ;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 400;
+    
+}
+
+.footerDiv .aboutUs ul li a{
+    text-decoration: none;
+    color: #217103;
+    list-style: none;
+
+    
+}
+
+.footerDiv .ContactUs input {
+    background-color: #D9D9D9;
+    padding: 20px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+}
+
+.footerDiv .ContactUs img {
+    margin: 10px 10px 0 0;
+    cursor: pointer;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* MOBILE VIEW  */
+@media screen and (max-width: 909px){
+    
+    nav img {
+        margin-left: -12px;
+    }
+    nav ul, nav .cta {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 10%;
+        left: 0;
+        text-align: center;
+        display: none;
+        line-height: 70px;
+        background-color: #F5F5F5;
+        color: #1C1C1C;
+    }
+
+    nav .cta {
+        display: flex;
+        flex-direction: column;
+        display: none;
+
+    }
+
+    nav #hambugerbtn {
+        display: block;
+    }
+
+    nav {
+        margin: 0;
+        border: none;
+        padding: 15px;
+    }
+
+    /* FORM  SECTION*/
+
+    .form-container {
+        display: block;
+        width: 100% ;
+        margin: 20px 0;
+        padding: 0 15px;
+        height: 100vh;
+    }
+
+    .form-container h3 {
+        font-size: 25px;
+    }
+
+    .form-container form label {
+        font-size: 16px;
+    }
+
+    .form-container form .user-input {
+        display: block;
+    }
+
+    .form-container button {
+        width: auto;
+        font-size: 16px;
+    }
+
+    .form-container p {
+        font-size: 16px;
+    }
+
+
+    footer {
+        display: none;
+       
+    }
+
+   
+
+}

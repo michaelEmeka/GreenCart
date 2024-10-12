@@ -1,13 +1,12 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 body {
     font-family: "Roboto", sans-serif;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
 }
 
 /* NAV SECTION */
@@ -18,7 +17,11 @@ nav {
     align-items: center;
     padding: 25px 0;
     gap: 5rem;
-    border-bottom: 1px solid #A3BFA1;
+    border-bottom: 1px solid #a3bfa1;
+}
+
+.nav-list {
+    display: flex;
 }
 
 nav ul {
@@ -30,24 +33,20 @@ nav ul {
 
 nav ul li {
     list-style: none;
-    color: #1C1C1C;
+    color: #1c1c1c;
 }
 
-
-nav a{
+nav a {
     text-decoration: none;
     font-weight: 500;
     font-size: 16px;
-    color: #1C1C1C;
+    color: #1c1c1c;
 }
 
-nav ul li a:hover, nav ul li a:active {
+nav ul li a:hover,
+nav ul li a:active {
     color: #217103;
     transition: ease-in-out 500ms;
-}
-
-nav .active {
-    color: #FFD700;
 }
 
 nav .cta a {
@@ -57,10 +56,9 @@ nav .cta a {
 }
 
 nav .cta .sign-up {
-     width: 111px;
-     margin-right: 5px;
-    background-color: #A3BFA1;
-
+    width: 111px;
+    margin-right: 5px;
+    background-color: #a3bfa1;
 }
 
 nav .cta .login {
@@ -69,19 +67,32 @@ nav .cta .login {
     color: white;
 }
 
-nav #hambugerbtn {
+nav .hambugerbtn,
+nav .closebtn {
     width: 30px;
     height: 30px;
     display: none;
 }
 
-nav #hambugerbtn .bar {
+nav .hambugerbtn .bar,
+nav .closebtn .bar {
     width: 25px;
     height: 3px;
     margin: 4px;
     border-radius: 8px;
-    background-color: #1C1C1C;
+    background-color: #1c1c1c;
+}
 
+nav .closebtn .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+nav .closebtn .bar:nth-child(2) {
+    opacity: 0;
+}
+
+nav .closebtn .bar:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
 }
 
 /* HERO SECTION */
@@ -93,13 +104,13 @@ nav #hambugerbtn .bar {
     gap: 80px;
 }
 
-.hero-text{
+.hero-text {
     width: 100%;
 }
 
 .hero h1 {
     width: 100%;
-    color: #1C1C1C;
+    color: #1c1c1c;
     font-size: 64px;
     font-style: 700;
     line-height: 72px;
@@ -107,15 +118,15 @@ nav #hambugerbtn .bar {
 }
 
 .hero h1 span {
-    color: #FFD700;
+    color: #ffd700;
 }
 
 .hero p {
-    color: #1C1C1C;
+    color: #1c1c1c;
     font-weight: 500;
     font-size: 18px;
     line-height: 32px;
-    margin: 20px 0; 
+    margin: 20px 0;
     width: 85%;
 }
 
@@ -132,8 +143,8 @@ nav #hambugerbtn .bar {
 }
 
 .hero button:hover {
-    background-color: #A3BFA1;
-    color: #1C1C1C;
+    background-color: #a3bfa1;
+    color: #1c1c1c;
     transition: ease-in-out 300ms;
 }
 .hero-img {
@@ -170,7 +181,7 @@ nav #hambugerbtn .bar {
     color: #217103;
 }
 
-.whyGreencartText{
+.whyGreencartText {
     width: 700px;
     margin: 0 auto;
     font-weight: 500;
@@ -184,12 +195,12 @@ nav #hambugerbtn .bar {
     margin: 70px;
 }
 
-.reasons{
-   text-align: center;
-   width: 305px;
+.reasons {
+    text-align: center;
+    width: 305px;
 }
 
-.img5{
+.img5 {
     margin-bottom: -12px;
 }
 
@@ -218,129 +229,133 @@ nav #hambugerbtn .bar {
 
 .HowItWorks h2 {
     font-weight: 600;
-    color: #1C1C1C;
+    color: #1c1c1c;
     font-size: 56px;
     text-align: center;
 }
 
 .HowItWorks h2 span {
-    color: #FFD700;
+    color: #ffd700;
 }
 
-.HowItWorks .target {
-    text-align: center;
-    width: 200px;
-    margin: 20px auto;
+.flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 70px 0;
+}
+
+.grid1,
+.grid4 {
     background-color: #217103;
-    padding: 12px;
-    color: #ffffff; 
-    border-radius: 8px;
     font-size: 18px;
     font-weight: 500;
-}
-
-.gridsteps {
-    margin: 60px 0;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-auto-rows: auto 370px;
-    gap: 30px;
-}
-
-.grid3 {
-    width: 500px;
-}
-
-.grid1, .grid4 {
-    background-color: #A3BFA1;
-    text-align: center;
-    padding: 30px;
-    border-radius: 8px;
-}
-
-.grid1 p, .grid4 p, .grid5 p {
-    margin-top: 30px;
-    font-size: 18px;
-    font-weight: 500px;
     line-height: 32px;
-    text-align: left;
-    color: #1C1C1C;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
 }
 
-.grid1 h3, .grid4 h3, .grid5 h3 {
+.grid1 .step,
+.grid4 .step {
+    border: transparent;
+    padding: 8px;
+    width: 100px;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #ffd700;
+    margin: 10px 0;
+}
+
+.grid4 .step {
+    margin: 10px auto;
+}
+
+.grid1 p,
+.grid4 p {
+    color: #ffffff;
+    margin: 20px 0;
+}
+
+.grid1 h3,
+.grid4 h3 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.grid4 h3 {
+    text-align: center;
+}
+
+.grid2,
+.grid3 {
+    background-color: #a3bfa1;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 32px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+}
+.grid3 {
+    margin-top: 30px;
+}
+
+.grid2 .step,
+.grid3 .step {
+    border: none;
+    padding: 8px;
+    width: 100px;
+    color: #ffffff;
+    border-radius: 8px;
+    background-color: #217103;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.grid2 h3,
+.grid3 h3,
+.grid5 h3 {
     color: #217103;
     font-size: 24px;
     font-weight: 500;
-    margin-top: 30px;
-}
-
-.grid1 .step,  .grid4 .step, .grid5 .step  {
-    margin-top: 0;
     text-align: center;
-    font-size: 18px;
-    font-weight: 500px;
-    line-height: 32px;
-    width: 100px;
-    margin: 5px auto;
-    padding: 10px;
-    background-color: #217103;
-    color: #ffffff;
-    border-radius: 8px;
 }
 
-.grid2, .grid3  {
-    background-color: #217103;
-    color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-}
-
-.grid2 p, .grid3 p {
-    margin-top: 30px;
-    font-size: 18px;
-    font-weight: 500px;
-    line-height: 32px;
+.grid2 p,
+.grid3 p,
+.grid5 p {
+    color: #1c1c1c;
+    margin: 20px 0;
     text-align: left;
-}
-
-.grid2 h3, .grid3 h3 {
-    font-size: 24px;
-    font-weight: 500;
-    text-align: center;
-    margin-top: 30px;
-    
-}
-
-.grid3 h3 {
-    text-align: left;
-}
-
-.grid2 .step, .grid3 .step {
-    text-align: center;
-    width: 100px;
-    line-height: 32px;
-    background-color: #FFD700;
-    padding: 10px;
-    margin: 5px auto;
-    border-radius: 8px;
-}
-
-.grid3 .step {
-   margin: 5px 0;
 }
 
 .grid5 {
-    border: 3px solid #FFD700;
-    padding: 30px;
+    border: 2px solid #ffd700;
+    margin-top: 30px;
     border-radius: 8px;
-}
-
-.grid5 h3 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 32px;
+    padding: 20px;
+    border-radius: 8px;
     text-align: center;
 }
 
-
-
+.grid5 .step {
+    background-color: #217103;
+    color: #ffffff;
+    width: 100px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    padding: 8px;
+    margin: 10px auto;
+    border-radius: 8px;
+}
 
 /* BLOG SCETION */
 .blog {
@@ -349,7 +364,7 @@ nav #hambugerbtn .bar {
 .blog h2 {
     font-size: 56px;
     font-weight: 600;
-    color: #1C1C1C;
+    color: #1c1c1c;
     text-align: center;
 }
 
@@ -363,30 +378,27 @@ nav #hambugerbtn .bar {
     font-size: 18px;
     font-weight: 500;
     margin: 20px 0;
-    color: #1C1C1C;
+    color: #1c1c1c;
 }
 
-.blogPost{
-    margin: 50px 0; 
+.blogPost {
+    margin: 50px 0;
     display: flex;
     justify-content: space-between;
     /* gap: 30px; */
-    
-
 }
 
-.blogArticles{
+.blogArticles {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 50px;
-    
 }
 
 .blogPostText {
     width: 230px;
     line-height: 40px;
-    color: #1C1C1C;
+    color: #1c1c1c;
     font-weight: 600;
     font-size: 24px;
     margin-top: -30px;
@@ -408,13 +420,12 @@ nav #hambugerbtn .bar {
 }
 
 .blogPostText button:hover {
-    color: #1C1C1C;
-    background-color: #A3BFA1;
+    color: #1c1c1c;
+    background-color: #a3bfa1;
     transition: ease-in-out 300ms;
 }
 
-
-.discover{
+.discover {
     width: 100%;
     background-color: #217103;
     padding: 50px 0;
@@ -434,8 +445,8 @@ nav #hambugerbtn .bar {
 }
 
 .discover button {
-    background-color: #FFD700;
-    color: #1C1C1C;
+    background-color: #ffd700;
+    color: #1c1c1c;
     padding: 12px;
     border-radius: 8px;
     border: none;
@@ -466,63 +477,46 @@ nav #hambugerbtn .bar {
 }
 
 .footerDiv .aboutUs {
-  width: 22%;
+    width: 22%;
 }
 
 .footerDiv .aboutUs p {
     font-size: 14px;
     font-weight: 500;
-    color: #1C1C1C;
+    color: #1c1c1c;
     line-height: 32px;
 }
 
 .footerDiv .ContactUs p {
     font-size: 14px;
     font-weight: 500;
-    color: #1C1C1C;
+    color: #1c1c1c;
     line-height: 32px;
 }
 
 .footerDiv .ContactUs span {
-    color: #FFD700;
+    color: #ffd700;
 }
 
-.footerDiv .aboutUs ul li{
-    margin: 10px ;
-    list-style: disc;
-    margin-left: 20px;
+.footerDiv .aboutUs ul li {
+    margin: 10px;
+    list-style: none;
     font-size: 14px;
     font-weight: 400;
-    
 }
 
-.footerDiv .aboutUs ul li::marker {
-    color: #217103;
-}
-
-.footerDiv .aboutUs ul li a{
+.footerDiv .aboutUs ul li a {
     text-decoration: none;
     color: #217103;
     list-style: none;
-
-    
-}
-
-.footerDiv .ContactUs label {
-    font-size: 14px;
-    text-align: left;
-    line-height: 26px;
-    font-weight: 500;
-    color: #1C1C1C;
 }
 
 .footerDiv .ContactUs input {
-    background-color: #D9D9D9;
+    background-color: #d9d9d9;
     padding: 20px;
     border: none;
     outline: none;
     border-radius: 8px;
-    margin-top: 10px;
 }
 
 .footerDiv .ContactUs img {
@@ -537,7 +531,7 @@ nav #hambugerbtn .bar {
 }
 
 /* MOBILE VIEW */
-@media  screen and (max-width: 909px) {
+@media screen and (max-width: 909px) {
     /* .container {
         padding: 15px;
     } */
@@ -545,30 +539,47 @@ nav #hambugerbtn .bar {
     nav img {
         margin-left: -12px;
     }
-    nav ul, nav .cta {
+
+    .nav-list {
         position: fixed;
         width: 100%;
         height: 100vh;
-        top: 10%;
+        top: 0;
         left: 0;
-        text-align: center;
-        display: none;
+        disply: none;
         line-height: 70px;
-        background-color: #F5F5F5;
-        color: #1C1C1C;
+        background-color: #f5f5f5;
+        color: #1c1c1c;
+        text-align: center;
+        padding: 15px;
+        padding-top: 25px;
+        text-align: left;
     }
 
-    nav .cta {
-        display: flex;
-        flex-direction: column;
-        display: none;
-
+    .active {
+        left: 100%;
+        transition: 2s;
     }
 
-    nav #hambugerbtn {
+    nav ul {
+        padding: 10px;
+        margin: 0;
+        width: 100%;
         display: block;
     }
 
+    nav ul li:hover {
+        background-color: #a3bfa1;
+    }
+
+    nav .hambugerbtn,
+    nav .closebtn {
+        display: block;
+    }
+
+    nav .closebtn {
+        margin-left: 80%;
+    }
 
     /* HERO SECTION */
 
@@ -598,7 +609,8 @@ nav #hambugerbtn .bar {
         text-align: left;
     }
 
-    .hero-img .img1, .hero-img .img2 {
+    .hero-img .img1,
+    .hero-img .img2 {
         display: none;
     }
 
@@ -622,7 +634,7 @@ nav #hambugerbtn .bar {
         text-align: left;
     }
 
-    .whyGreencartText{
+    .whyGreencartText {
         width: 100%;
     }
 
@@ -642,8 +654,10 @@ nav #hambugerbtn .bar {
 
     .buttontext {
         padding: 15px;
-        font-size: 1p2x;
-        width: 100%;
+        font-size: 16px;
+        width: 69%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .HowItWorks {
@@ -655,18 +669,36 @@ nav #hambugerbtn .bar {
         font-size: 24px;
         width: 100%;
     }
-    .gridsteps {
+
+    .flex {
         display: block;
     }
 
-    .grid1, .grid2, .grid3, .grid4, .grid5 {
-        margin: 20px 0;
-    }
-
-    .gridsteps img, .grid3 {
+    .flex img {
         width: 100%;
     }
-    
+
+    .grid1 .step {
+        margin: 0 auto;
+    }
+
+    .grid1 h3,
+    .grid2 h3,
+    .grid3 h3,
+    .grid4 h3,
+    .grid5 h3 {
+        text-align: center;
+        margin: 10px 0;
+        font-size: 20px;
+    }
+
+    .grid1 p,
+    .grid2 p,
+    .grid3 p,
+    .grid4 p,
+    .grid5 p {
+        font-size: 16px;
+    }
 
     .blog {
         margin: 0;
@@ -677,7 +709,7 @@ nav #hambugerbtn .bar {
         line-height: 32px;
     }
 
-    .blog h2{
+    .blog h2 {
         font-size: 24px;
     }
 
@@ -704,7 +736,7 @@ nav #hambugerbtn .bar {
         padding: 15px;
     }
 
-    .discover h3{
+    .discover h3 {
         font-size: 20px;
         line-height: 30px;
     }
@@ -713,14 +745,14 @@ nav #hambugerbtn .bar {
         font-size: 15px;
     }
 
-
     .footerDiv {
         display: block;
         margin: 0;
         padding: 15px;
     }
 
-    .footerDiv .aboutUs, .footerDiv .ContactUs {
+    .footerDiv .aboutUs,
+    .footerDiv .ContactUs {
         width: 100%;
     }
 
@@ -732,10 +764,7 @@ nav #hambugerbtn .bar {
         margin-bottom: 5px;
     }
 
-    .footerDiv .copyright {
-        font-size: 10px;
+    .copyright {
+        font-size: 12px;
     }
-
-
-
 }
