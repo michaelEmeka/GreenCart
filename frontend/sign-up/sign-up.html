@@ -52,7 +52,6 @@
                                 type="text"
                                 name="businessName"
                                 id="firstName"
-                                required
                             />
                         </div>
                     </div>
@@ -61,7 +60,6 @@
                         type="email"
                         name="email"
                         id="emailAddress"
-                        required
                     /><br />
 
                     <div class="user-input">
@@ -71,7 +69,6 @@
                                 type="password"
                                 name="password"
                                 id="password"
-                                required
                             />
                         </div>
 
@@ -82,23 +79,20 @@
                                 type="password"
                                 name="confirmPassword"
                                 id="confirmPassword"
-                                required
                             />
                         </div>
                     </div>
                     <p id="errorMessage"></p>
 
-                    <a href="" id="submitBtn">
-                        <button>Sign Up</button>
-                    </a>
+                    <button type="submit" name="sign-up" id="submitBtn">Sign Up</button>
                 </form>
 
-                <div class="checkbox">
+                <!-- <div class="checkbox">
                     <input type="checkbox" id="checkbox" checked />
                     <label for="checkbox"></label>
 
-                    <!-- <label for="">I agree to the Terms and Conditions</label> -->
-                </div>
+                    <label for="">I agree to the Terms and Conditions</label>
+                </div> -->
 
                 <p>
                     Already have an account?
@@ -156,6 +150,7 @@
             </footer>
         </div>
 
+        <script src="validate.js"></script>
         <script src="sign-up.js"></script>
     </body>
 </html>
