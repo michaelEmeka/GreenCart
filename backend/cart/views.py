@@ -7,9 +7,8 @@ from base.models import Item
 from .serializers import defaultNull, ListOpenCartItemsSerializer, CheckoutSerializer
 from users.models import User
 from django.shortcuts import get_object_or_404
-
-
-
+from .payments import initPayment
+from rest_framework import status
 
 class ListOpenCartItems(ListAPIView):
     serializer_class = ListOpenCartItemsSerializer
@@ -34,8 +33,10 @@ class ModifyCartItem(GenericAPIView):
         user_id = request.user.id
         user = User.objects.get(id=user_id)
         
-        if Item.objects.filter(id=pk).exists:
+        if Item.objects.filter(id=pk).exists():
+            print("exists")
             item = Item.objects.get(id=pk)
+            print(item)
             cart, created = Cart.objects.get_or_create(user=user, is_closed=False)
             
             if action == "increase":
@@ -84,10 +85,10 @@ class Checkout(GenericAPIView):
     def post(self, request):
         serializer = CheckoutSerializer(data=request.data, context={"request": request})
         if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            print(serializer.data)
-            #send data to payment_gateway
-            #payment gateway returns payment link
-            #return payment link to user in json format
-            #trigger webhook to see if payment successful
-            return Response(serializer.data)
+            checkout = serializer.save()
+            # send data to payment_gateway
+            # payment gateway returns payment link
+            # return payment link to user in json format
+            # trigger webhook to see if payment successful
+            data = initPayment(checkout, serializer.validated_data["redirect_success"])
+            return Response(data, status=status.HTTP_201_CREATED)

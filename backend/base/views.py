@@ -22,7 +22,7 @@ class ListCreateItemsView(ListAPIView):
 
 class CreateItemView(GenericAPIView):
     def post(self, request):
-        serializer = CreateItemSerializer(data=request.data)
+        serializer = CreateItemSerializer(data=request.data, context={"request": request})
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
@@ -46,7 +46,7 @@ class UpdateItemView(GenericAPIView):
     '''
     Update Item Details
     '''
-    def put(self, request, *args, **kwargs):
+    def patch(self, request, *args, **kwargs):
         pk = kwargs["pk"]
         if not Item.objects.filter(id=pk).exists():
             return Response({"message": "object does not exist"}, status=status.HTTP_204_NO_CONTENT)

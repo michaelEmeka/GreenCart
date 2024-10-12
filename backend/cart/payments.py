@@ -7,23 +7,20 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def initPayment(data):
+def initPayment(checkout, redirect):
     endpoint = 'https://api.flutterwave.com/v3/payments'
     SEC_KEY = os.getenv("FLW_SECRET_KEY")
     data = {
-        "tx_ref": str(uuid.uuid4()),
-        "amount": str(data["total"]),
+        "tx_ref": str(checkout.transaction_id),
+        "amount": str(checkout.cart.get_cart_total()),
         "currency": "NGN",
-        "redirect_url": str(data["redirect_success"]),
+        "redirect_url": redirect,
         "customer": {
-            "email": data["email"],
-            "name": data["business_name"],
-            "phonenumber": data["phone"]
-            },
-        "customizations": {
-            "title": "Your Green Cart Is Ready!",
-            "colour": "#217103"
-            }
+            "email": checkout.cart.user.email,
+            "name": checkout.cart.user.email,
+            "phonenumber": str(checkout.phone),
+        },
+        "customizations": {"title": "Your Green Cart Is Ready!", "colour": "#217103"},
     }
     headers = {
         "Authorization": f"Bearer {SEC_KEY}",

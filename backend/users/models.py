@@ -19,7 +19,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_verified = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
-    interest_tags = models.ManyToManyField("base.ItemTag", related_name="users")
+    interest_tags = models.ManyToManyField("base.ItemTag", related_name="users", blank=True)
     
     objects = CustomUserManager()
     USERNAME_FIELD = "email"
@@ -48,4 +48,4 @@ class OneTimePassword(models.Model):
     @property
     def is_expired(self):
         current_time = timezone.now()
-        return (current_time - self.time_expired).total_seconds() > 300
+        return (current_time - self.time_created).total_seconds() > 300

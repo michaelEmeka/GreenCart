@@ -5,7 +5,7 @@ from rest_framework.exceptions import AuthenticationFailed
 from .models import CartItem, Cart, Checkout
 from users.models import User
 from .payments import initPayment
-#from .utils import send_email
+# from .utils import send_email
 
 class defaultNull(serializers.Serializer):
     pass
@@ -20,7 +20,7 @@ class ListOpenCartItemsSerializer(serializers.ModelSerializer):
         return instance.cart.get_cart_total()
 
 class CheckoutSerializer(serializers.ModelSerializer):
-    #total = serializers.IntegerField(write_only=True)
+    # total = serializers.IntegerField(write_only=True)
     phone = serializers.IntegerField(write_only=True, required=False)
     address = serializers.CharField(write_only=True, required=False)
     redirect_success = serializers.CharField(write_only=True)
@@ -31,10 +31,10 @@ class CheckoutSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         user = User.objects.get(id=self.context["request"].user.id)
         cart = user.carts.get(is_closed=False)
-        
+
         address = attrs.get("address")
         phone = attrs.get("phone")
-        redirect_success = attrs["redirect_success"]\
+        redirect_success = attrs.get("redirect_success")
         
         attrs["business_name"] = user.business_name
         attrs["total"] = cart.get_cart_total()
@@ -50,11 +50,17 @@ class CheckoutSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("No user phone number available")
         else:
             attrs["phone"] = phone or user.phone
-        
+        print(attrs)
         return attrs
-    
-    def create(self, validated_data):
 
-        data = initPayment(validated_data)
-        print((data))
-        return data
+    def create(self, validated_data):
+        user = User.objects.get(id=self.context["request"].user.id)
+        cart = user.carts.get(is_closed=False)
+        checkout = Checkout.objects.create(
+            cart=cart,
+            address=validated_data["address"],
+            phone=validated_data["phone"],
+        )
+        
+        #print(data)
+        return checkout
