@@ -1,30 +1,45 @@
-require("dotenv").config();
+import { BASE_URL } from "../base.js";
 
-const BASE_URL = process.env.BASE_URL
 var form = document.getElementById("sign-upForm");
+//const axios = require("axios/dist/browser/axios.cjs");
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+axios.get("https://jsonplaceholder.typicode.com/posts/1")
+    .then((response) => {
+        console.log(response.data);
+    })
+    .catch((error) => {
+        console.error("Error fetching data:", error);
+        document.getElementById(
+            "response"
+        ).textContent = `Error: ${error.message}`;
+    });
+
+
+form.addEventListener("submit", async (event) => {
+    event.preventDefault();
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
-    try {
-        const response = await fetch("https://example.com/api/submit", {
-            method: "POST",
+    axios
+        .post(`${BASE_URL}api/v1/auth/signup/`, JSON.stringify(data), {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(data), // Send data as JSON
+            timeout: 10000
+            // Send data as JSON
+        })
+        .then((response) => {
+            if (!response.ok) {
+                console.log(`Error: ${response.status}`);
+                throw new Error("Request failed");
+            }
+            return response.json(); // Parse JSON response
+        })
+        .then((data) => {
+            console.log("Success:", data); // Handle the response data here
+        })
+        .catch((error) => {
+            console.error("Fetch error:", error);
         });
-
-        if (!response.ok) {
-            throw new Error("Network response was not ok");
-        }
-
-        const responseData = await response.json();
-        console.log("Success:", responseData);
-    } catch (error) {
-        console.error("Error:", error);
-    }
-    console.log(data);
+        console.log(data); // This logs the data immediately after form submission
 });

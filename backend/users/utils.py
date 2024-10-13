@@ -17,7 +17,7 @@ def send_code_to_user(user):
     #user = CustomUser.objects.get(email=email)
     current_site = "todo.com"
     email_body = f"Hi {user.business_name}, thanks for signing up on {current_site}, your OTP is {otp_code}"
-    from_email = settings.DEFAULT_FROM_EMAIL
+    from_email = settings.EMAIL_HOST_USER
     
     OneTimePassword.objects.create(user=user, code=otp_code)
     
@@ -31,4 +31,5 @@ def send_email(data):
         from_email=settings.EMAIL_HOST_USER,
         to=data["to_email"]
         )
+    print(data["to_email"])
     email.send()

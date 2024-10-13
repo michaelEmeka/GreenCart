@@ -11,12 +11,13 @@ from django.utils.encoding import smart_str, DjangoUnicodeDecodeError
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
 
+
 class RegisterUserView(GenericAPIView):
 
     def post(self, request):
         serializer = UserRegisterSerializer(data=request.data)
 
-        if serializer.is_valid(raise_exception=True):
+        if serializer.is_valid():
             user = serializer.save()
             # send email function user['email']
             send_code_to_user(user)
@@ -27,11 +28,12 @@ class RegisterUserView(GenericAPIView):
                 },
                 status=status.HTTP_201_CREATED,
             )
-        return Response(serializer.errors, status=status.HTTP_300_BAD_REQUEST)
+            print(serializer.errors)
+        return Response({"message": "error from  backend"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class VerifyUserEmail(GenericAPIView):
-    
+
     def post(self, request):
         serializer = VerifyUserSerializer(data=request.data)
         if serializer.is_valid():
@@ -59,9 +61,14 @@ class LoginUserView(GenericAPIView):
 
 class ResetUserPassword(GenericAPIView):
     def post(self, request):
-        serializer = PasswordResetRequestSerializer(data=request.data, context={"request": request})
+        serializer = PasswordResetRequestSerializer(
+            data=request.data, context={"request": request}
+        )
         if serializer.is_valid(raise_exception=True):
-            return Response({"message": "check your email for reset verification link"}, status=status.HTTP_200_OK)
+            return Response(
+                {"message": "check your email for reset verification link"},
+                status=status.HTTP_200_OK,
+            )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -72,6 +79,7 @@ class PasswordResetConfirm(GenericAPIView):
         uidb64: encoded user id
         token: password reset token
     """
+
     def get(self, request, uidb64, token):
         try:
             user_id = smart_str(urlsafe_base64_decode(uidb64))
@@ -108,21 +116,29 @@ class SetUserPassword(GenericAPIView):
         serializer.is_valid(raise_exception=True)
         return Response({"message": "Password reset successfully"})
 
+
 class LogoutUser(GenericAPIView):
-    #permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     def post(self, request):
         try:
             refresh_token = request.data["refresh_token"]
             token = RefreshToken(refresh_token)
             token.blacklist()
-            return Response({"message": "User successfully logged out"}, status=status.HTTP_205_RESET_CONTENT)
+            return Response(
+                {"message": "User successfully logged out"},
+                status=status.HTTP_205_RESET_CONTENT,
+            )
         except Exception as e:
             raise e
 
+
 class TestView(GenericAPIView):
     permission_classes = [IsAuthenticated]
-    
+
     def get(self, request):
         user = User.objects.get(id=request.user.id)
-        
-        return Response({"message": f"Hi from backend, {user.business_name}"}, status=status.HTTP_200_OK)
+
+        return Response(
+            {"message": f"Hi from backend, {user.business_name}"},
+            status=status.HTTP_200_OK,
+        )

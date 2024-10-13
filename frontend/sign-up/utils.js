@@ -1,5 +1,3 @@
-
-
 var form = document.getElementById("sign-upForm");
 var inp = form.querySelectorAll("input");
 var send = document.getElementById("submitBtn");
@@ -70,3 +68,22 @@ let validateAll = () => {
         send.style.background = " rgb(44, 44, 44)";
     }
 };
+
+//TOGGLE DETAIL-OTP FORMS
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("defaultForm").click();
+});
+function changeTab(evt, val) {
+    let navButton = document.getElementsByClassName("form-nav"),
+        contentPages = document.getElementsByTagName("form");
+    for (let i = 0; i < contentPages.length; i++) {
+        contentPages[i].style.display = "none";
+    }
+    document.getElementById(val).style.display = "block";
+
+    for (let i = 0; i < navButton.length; i++) {
+        navButton[i].style.borderBottom = "";
+    }
+    evt.currentTarget.style.borderBottom = "2px solid var(--darkWhine)";
+}

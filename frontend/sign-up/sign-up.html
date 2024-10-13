@@ -11,6 +11,8 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="sign-up.css" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script type="module" src="sign-up.js" defer></script>
     </head>
     <body>
         <div class="container">
@@ -41,26 +43,29 @@
             </nav>
 
             <!-- SIGN-UP FORM -->
-
+            
             <div class="form-container">
+                
                 <h3>Create Your Account</h3>
-                <form id="sign-upForm">
+
+                <div class="form-navs">
+                    <button class="form-nav" onclick="changeTab(event,'sign-upForm')" id="defaultForm">&LT;</button>
+                    <button class="form-nav" onclick="changeTab(event,'otp-Form')">&GT;</button>
+                </div>
+
+                <form action="" id="sign-upForm" method="POST">
                     <div class="user-input">
                         <div class="label">
                             <label for="firstName">Business name</label><br />
                             <input
                                 type="text"
-                                name="businessName"
+                                name="business_name"
                                 id="firstName"
                             />
                         </div>
                     </div>
                     <label for="email">Email address</label><br />
-                    <input
-                        type="email"
-                        name="email"
-                        id="emailAddress"
-                    /><br />
+                    <input type="email" name="email" id="emailAddress" /><br />
 
                     <div class="user-input">
                         <div class="label">
@@ -77,16 +82,47 @@
                             ><br />
                             <input
                                 type="password"
-                                name="confirmPassword"
+                                name="password2"
                                 id="confirmPassword"
                             />
                         </div>
                     </div>
                     <p id="errorMessage"></p>
 
-                    <button type="submit" name="sign-up" id="submitBtn">Sign Up</button>
-                </form>
+                    <button type="submit" name="sign-up" id="submitBtn">
+                        Sign Up
+                    </button>
 
+                </form>
+                <!-- <div class="checkbox">
+                    <input type="checkbox" id="checkbox" checked />
+                    <label for="checkbox"></label>
+
+                    <label for="">I agree to the Terms and Conditions</label>
+                </div> -->
+
+
+                <form action="" id="otp-Form" method="POST">
+                    <div class="user-input">
+                        <div class="label">
+                            <label for="firstName">OTP</label><br />
+                            <input
+                                type="number"
+                                name="otp"
+                                id="otp"
+                            />
+                        </div>
+                    </div>
+                    
+                    <p id="errorMessage"></p>
+                    
+                    <h5 style="color: #217103;">Resend OTP</h5>
+
+                    <button type="submit" name="sign-up" id="subitBtn">
+                        Complete Sign Up
+                    </button>
+
+                </form>
                 <!-- <div class="checkbox">
                     <input type="checkbox" id="checkbox" checked />
                     <label for="checkbox"></label>
@@ -150,7 +186,7 @@
             </footer>
         </div>
 
-        <script src="validate.js"></script>
-        <script src="sign-up.js"></script>
+        <script src="utils.js"></script>
+        
     </body>
 </html>
