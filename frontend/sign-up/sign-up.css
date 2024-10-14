@@ -142,16 +142,16 @@ nav #hambugerbtn .bar {
 
 .form-container .form-navs{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-.form-container .form-navs .form-nav {
+.form-container .form-navs .form-nav{
     width: 10%;
     font-size: 24px;
     font-weight: 400;
     padding: 5px;
-    color: #ffff;
-    background-color: #217103;
+    color: #217103;
+    background: none !important;
     border: none;
     border-radius: 8px;
     margin: 20px 5px 20px 0;

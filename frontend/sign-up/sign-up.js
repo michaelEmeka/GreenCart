@@ -1,19 +1,8 @@
 import { BASE_URL } from "../base.js";
 
-var form = document.getElementById("sign-upForm");
+const form = document.getElementById("sign-upForm");
+const navButton = document.getElementsByClassName("form-nav");
 //const axios = require("axios/dist/browser/axios.cjs");
-
-axios.get("https://jsonplaceholder.typicode.com/posts/1")
-    .then((response) => {
-        console.log(response.data);
-    })
-    .catch((error) => {
-        console.error("Error fetching data:", error);
-        document.getElementById(
-            "response"
-        ).textContent = `Error: ${error.message}`;
-    });
-
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -31,7 +20,7 @@ form.addEventListener("submit", async (event) => {
                 console.log(`Error: ${response.status}`);
                 throw new Error("Request failed");
             }
-            console.log("response.ok")
+            navButton[1].click();
             return response.data; // Parse JSON response
         })
         .then((data) => {

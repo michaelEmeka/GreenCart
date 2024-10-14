@@ -1,27 +1,62 @@
-var form = document.getElementById("sign-upForm");
-var inp = form.querySelectorAll("input");
-var send = document.getElementById("submitBtn");
+const form = document.getElementById("sign-upForm");
+const inp = form.querySelectorAll("input");
+const send = document.getElementById("submitBtn");
+
+const navButton = document.getElementsByClassName("form-nav"), contentPages = document.getElementsByTagName("form");
+
+
 
 let busName = inp[0], email = inp[1], passw = inp[2], passwConfirm = inp[3];
 
-let validN, validE, validM;
-validE = validM = validN = false;
 
-window.addEventListener("load", () => {
-    console.log(send);
+
+let validN, validE, validP, validP2, validPass;
+validE, validN, validP, validP2, validPass = false;
+
+
+//TOGGLE DETAIL-OTP FORMS
+
+window.addEventListener("DOMContentLoaded", () => {
+    initPage();
+});
+
+function initPage() {
+    //page setup
+    navButton[0].click();
     send.disabled = true;
     send.style.backgroundColor = "grey";
+    for (let b = 0; b < navButton.length; b++) {
+        navButton[b].style.display = "none";
+    }
+}
 
-});
+
+function changeTab(evt, val) {
+    //Switches form tabs
+
+    for (let i = 0; i < contentPages.length; i++) {
+        contentPages[i].style.display = "none";
+        //Setup appropriate form navigation buttons as visible
+        if (i < 2)
+            navButton[i].style.display = "block";
+            navButton[i].style.visibility = "visible";
+    }
+    //Hide unwanted form nav button
+    evt.target.style.visibility = "hidden";
+    document.getElementById(val).style.display = "block";
+}
+
+
+//VALIDATE FORMS
 
 email.addEventListener("input", function () {
     if (!RegexpValidate(this)) {
         validE = false;
-        this.style.border = "0.5px solid red";
+        this.style.border = "2px solid red";
         validateAll();
     } else {
         validE = true;
-        this.style.border = "None";
+        this.style.border = "2px solid #217103";
         validateAll();
     }
 });
@@ -32,15 +67,18 @@ busName.addEventListener("input", function () {
 });
 
 passw.addEventListener("input", function () {
-    validM = NullValidate(this);
+    validP = NullValidate(this);
+    validPass = PassEqual(this, passwConfirm);
     validateAll();
 });
 
 passwConfirm.addEventListener("input", function () {
-    validM = NullValidate(this);
+    validP2 = NullValidate(this);
+    validPass = PassEqual(passw, this);
     validateAll();
 });
 
+//VALIADATE FUNCTIONS
 let RegexpValidate = (obj) => {
     RGEX =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -49,41 +87,35 @@ let RegexpValidate = (obj) => {
 };
 
 let NullValidate = (obj) => {
-    let inpt = obj.value;
-    if (inpt == "") {
-        obj.style.border = "0.5px solid red";
+    if (obj.value == "") {
+        obj.style.border = "2px solid red";
         return false;
     } else {
-        obj.style.border = "None";
+        obj.style.border = "2px solid #217103";
         return true;
     }
 };
 
+let PassEqual = (pass1, pass2) => {
+    if (pass1.value === pass2.value) {
+        pass1.style.border = "2px solid #217103";
+        pass2.style.border = "2px solid #217103";
+        return true;
+    }
+    else {
+        pass1.style.border = "2px solid red";
+        pass2.style.border = "2px solid red";
+        return false;
+    }
+    
+}
+
 let validateAll = () => {
-    if (validE && validM && validN) {
+    if (validE && validN && validP && validP2 && validPass) {
         send.disabled = false;
-        send.style.background = " rgb(75, 33, 173)";
+        send.style.background = "#217103";
     } else {
         send.disabled = true;
-        send.style.background = " rgb(44, 44, 44)";
+        send.style.background = "grey";
     }
 };
-
-//TOGGLE DETAIL-OTP FORMS
-
-window.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("defaultForm").click();
-});
-function changeTab(evt, val) {
-    let navButton = document.getElementsByClassName("form-nav"),
-        contentPages = document.getElementsByTagName("form");
-    for (let i = 0; i < contentPages.length; i++) {
-        contentPages[i].style.display = "none";
-    }
-    document.getElementById(val).style.display = "block";
-
-    for (let i = 0; i < navButton.length; i++) {
-        navButton[i].style.borderBottom = "";
-    }
-    evt.currentTarget.style.borderBottom = "2px solid var(--darkWhine)";
-}
