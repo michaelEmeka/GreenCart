@@ -1,19 +1,28 @@
-import { BASE_URL } from "../base.js";
+//IMPORTs
+import { API_URL, WEB_URL } from "../base.js";
 
-const form = document.getElementById("sign-upForm");
+//Variables Initialization(DOM)
+const signupForm = document.getElementById("sign-upForm");
+const otpForm = document.getElementById("otp-Form");
 const navButton = document.getElementsByClassName("form-nav");
-//const axios = require("axios/dist/browser/axios.cjs");
 
-form.addEventListener("submit", async (event) => {
+//Variables Initialization(Local)
+var email = "";
+
+//Signup-Form handler
+signupForm.addEventListener("submit", async (event) => {
+    const endpoint = `${API_URL}api/v1/auth/signup/`;
     event.preventDefault();
-    const formData = new FormData(form);
+    const formData = new FormData(signupForm);
     const data = Object.fromEntries(formData.entries());
-
-    await axios.post(`${BASE_URL}api/v1/auth/signup/`, JSON.stringify(data), {
+    email = data.email;
+    console.log(data);
+    //API POST REQUEST
+    await axios
+        .post(endpoint, JSON.stringify(data), {
             headers: {
                 "Content-Type": "application/json",
-            }
-            // Send data as JSON
+            },
         })
         .then((response) => {
             if (response.status != 201) {
@@ -21,13 +30,43 @@ form.addEventListener("submit", async (event) => {
                 throw new Error("Request failed");
             }
             navButton[1].click();
-            return response.data; // Parse JSON response
+            return response.data;
         })
         .then((data) => {
-            console.log("Success:", data); // Handle the response data here
+            console.log("Success:", data);
         })
         .catch((error) => {
             console.error("Fetch error:", error);
         });
-        console.log(data); // This logs the data immediately after form submission
+});
+
+otpForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const endpoint = `${API_URL}api/v1/auth/verify-user/`;
+    const redirect = WEB_URL;
+    
+    const formData = new FormData(otpForm);
+    const data = Object.fromEntries(formData.entries());
+    console.log(data); //API POST REQUEST
+    await axios
+        .post(endpoint, JSON.stringify(data), {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((response) => {
+            if (response.status != 200) {
+                console.log(`Error: ${response.status}`);
+                throw new Error("Request failed");
+            }
+            return response.data;
+        })
+        .then((data) => {
+            console.log("Success:", data);
+            //redirect to home window.href.location = redirect
+        })
+        .catch((error) => {
+            console.error("Fetch error:", error);
+        });
 });
