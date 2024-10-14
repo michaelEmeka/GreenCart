@@ -1,14 +1,12 @@
+//Variables Initialization(DOM)
 const form = document.getElementById("sign-upForm");
 const inp = form.querySelectorAll("input");
 const send = document.getElementById("submitBtn");
 
 const navButton = document.getElementsByClassName("form-nav"), contentPages = document.getElementsByTagName("form");
 
-
-
+//Variable Initialization(Local)
 let busName = inp[0], email = inp[1], passw = inp[2], passwConfirm = inp[3];
-
-
 
 let validN, validE, validP, validP2, validPass;
 validE, validN, validP, validP2, validPass = false;
