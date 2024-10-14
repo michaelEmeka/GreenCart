@@ -1,7 +1,13 @@
 import random
-from django.core.mail import EmailMessage
+from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
 from .models import OneTimePassword
+import smtplib
+import logging
+
+logger = logging.getLogger(__name__)
+
+
 
 def otpGen():
     otp = ""
@@ -10,19 +16,26 @@ def otpGen():
     return otp
 
 def send_code_to_user(user):
-    
-    Subject = "One Time passcode for Email Verification" 
+
+    Subject = "One Time Passcode for Email Verification" 
     otp_code = otpGen()
     print(otp_code)
-    #user = CustomUser.objects.get(email=email)
-    current_site = "todo.com"
+    # user = CustomUser.objects.get(email=email)
+    current_site = "greencart.com"
     email_body = f"Hi {user.business_name}, thanks for signing up on {current_site}, your OTP is {otp_code}"
-    from_email = settings.EMAIL_HOST_USER
-    
+    from_email = settings.DEFAULT_FROM_EMAIL
+    print(from_email)
     OneTimePassword.objects.create(user=user, code=otp_code)
-    
-    email = EmailMessage(subject=Subject, body=email_body, from_email=from_email, to=[user.email])
-    email.send(fail_silently=True)
+    print("Hi in send code email")
+    # send_mail(
+    # Subject, email_body, from_email, [user.email]
+    # )
+    try:
+        email = EmailMessage(subject=Subject, body=email_body, from_email=from_email, to=[str(user.email)])
+        email.send(fail_silently=False)
+    except Exception as e:
+        logger.error(f"Error sending email: {e}")
+    print(f"I attempted send to: {user.email}")
 
 def send_email(data):
     email = EmailMessage(
