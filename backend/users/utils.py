@@ -26,7 +26,7 @@ def send_code_to_user(user):
     from_email = settings.DEFAULT_FROM_EMAIL
     print(from_email)
     OneTimePassword.objects.create(user=user, code=otp_code)
-    print("Hi in send code email")
+
     # send_mail(
     # Subject, email_body, from_email, [user.email]
     # )

@@ -15,8 +15,16 @@ from rest_framework.permissions import IsAuthenticated
 class RegisterUserView(GenericAPIView):
 
     def post(self, request):
-        serializer = UserRegisterSerializer(data=request.data)
-
+        data = request.data
+        
+        #Checks if user exists in database
+        if User.objects.filter(email=data["email"], is_verified=False).exists():
+            return Response(
+                {"message": "User with this email already exists, kindly verify"}, status=status.HTTP_409_CONFLICT
+            )
+            
+        #Create user for non existent user
+        serializer = UserRegisterSerializer(data=data)
         if serializer.is_valid():
             user = serializer.save()
             # send email function user['email']
@@ -29,7 +37,7 @@ class RegisterUserView(GenericAPIView):
                 status=status.HTTP_201_CREATED,
             )
             print(serializer.errors)
-        return Response({"message": "error from  backend"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class VerifyUserEmail(GenericAPIView):
