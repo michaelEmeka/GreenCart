@@ -3,6 +3,7 @@ from users.models import User
 from base.models import Item
 import uuid
 
+
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="carts")
     is_closed = models.BooleanField(default=False)
@@ -14,7 +15,7 @@ class Cart(models.Model):
         return total
 
     def __str__(self):
-        return self.user.business_name + "'s cart " + str(self.id)
+        return self.user.first_name + "'s cart " + str(self.id)
 
 
 class CartItem(models.Model):
@@ -27,7 +28,8 @@ class CartItem(models.Model):
         return self.item.item_price * self.quantity
 
     def __str__(self):
-        return self.cart.user.business_name + "\'s " + self.item.item_name
+        return self.cart.user.first_name + "'s " + self.item.item_name
+
 
 class Checkout(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name="orders")
@@ -36,6 +38,6 @@ class Checkout(models.Model):
     is_success = models.BooleanField(default=False)
     transaction_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     timestamp = models.DateTimeField(auto_now=True)
-    
+
     def __str__(self):
         return self.address

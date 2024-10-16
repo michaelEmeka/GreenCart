@@ -16,14 +16,15 @@ class RegisterUserView(GenericAPIView):
 
     def post(self, request):
         data = request.data
-        
-        #Checks if user exists in database
+
+        # Checks if user exists in database
         if User.objects.filter(email=data["email"], is_verified=False).exists():
             return Response(
-                {"message": "User with this email already exists, kindly verify"}, status=status.HTTP_409_CONFLICT
+                {"message": "User with this email already exists, kindly verify"},
+                status=status.HTTP_409_CONFLICT,
             )
-            
-        #Create user for non existent user
+
+        # Create user for non existent user
         serializer = UserRegisterSerializer(data=data)
         if serializer.is_valid():
             user = serializer.save()
@@ -32,7 +33,7 @@ class RegisterUserView(GenericAPIView):
             return Response(
                 {
                     "data": serializer.data,
-                    "message": f"Hi, {user.business_name}. Thanks for signing up, a passcode has been sent to your email",
+                    "message": f"Hi, {user.first_name}. Thanks for signing up, a passcode has been sent to your email",
                 },
                 status=status.HTTP_201_CREATED,
             )
@@ -139,7 +140,7 @@ class LogoutUser(GenericAPIView):
         except Exception as e:
             raise e
 
-
+#Get user
 class TestView(GenericAPIView):
     permission_classes = [IsAuthenticated]
 
@@ -147,6 +148,6 @@ class TestView(GenericAPIView):
         user = User.objects.get(id=request.user.id)
 
         return Response(
-            {"message": f"Hi from backend, {user.business_name}"},
+            {"message": f"Hi from backend, {user.first_name}"},
             status=status.HTTP_200_OK,
         )
