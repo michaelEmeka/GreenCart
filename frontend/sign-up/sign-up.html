@@ -43,24 +43,42 @@
             </nav>
 
             <!-- SIGN-UP FORM -->
-            
+
             <div class="form-container">
-                
                 <h3>Create Your Account</h3>
 
                 <div class="form-navs">
-                    <button class="form-nav" onclick="changeTab(event,'sign-upForm')" id="defaultForm">&LT;</button>
-                    <button class="form-nav" onclick="changeTab(event,'otp-Form')">&GT;</button>
+                    <button
+                        class="form-nav"
+                        onclick="changeTab(event,'sign-upForm')"
+                        id="defaultForm"
+                    >
+                        &LT;
+                    </button>
+                    <button
+                        class="form-nav"
+                        onclick="changeTab(event,'otp-Form')"
+                    >
+                        &GT;
+                    </button>
                 </div>
 
-                <form action="" id="sign-upForm" method="POST">
+                <form action="" id="sign-upForm" method="POST" >
                     <div class="user-input">
                         <div class="label">
-                            <label for="firstName">Business name</label><br />
+                            <label for="firstName">First name</label><br />
                             <input
                                 type="text"
-                                name="business_name"
+                                name="first_name"
                                 id="firstName"
+                            />
+                        </div>
+                        <div class="label">
+                            <label for="lastName">Last name</label><br />
+                            <input
+                                type="text"
+                                name="last_name"
+                                id="lastName"
                             />
                         </div>
                     </div>
@@ -92,7 +110,6 @@
                     <button type="submit" name="sign-up" id="submitBtn">
                         Sign Up
                     </button>
-
                 </form>
                 <!-- <div class="checkbox">
                     <input type="checkbox" id="checkbox" checked />
@@ -101,27 +118,30 @@
                     <label for="">I agree to the Terms and Conditions</label>
                 </div> -->
 
-
                 <form action="" id="otp-Form" method="POST">
                     <div class="user-input">
                         <div class="label">
                             <label for="firstName">OTP</label><br />
-                            <input
-                                type="number"
-                                name="otp"
-                                id="otp"
-                            />
+                            <input type="number" name="otp" id="otp" />
                         </div>
                     </div>
-                    
+
                     <p id="errorMessage"></p>
-                    
-                    <h5 id="ResendOTP" style="color: #217103; background: none; cursor: pointer;">Resend OTP</h5>
+
+                    <h5
+                        id="ResendOTP"
+                        style="
+                            color: #217103;
+                            background: none;
+                            cursor: pointer;
+                        "
+                    >
+                        Resend OTP
+                    </h5>
 
                     <button type="submit" name="sign-up" id="subitBtn-2">
                         Sign Up
                     </button>
-
                 </form>
                 <!-- <div class="checkbox">
                     <input type="checkbox" id="checkbox" checked />
@@ -187,6 +207,5 @@
         </div>
 
         <script src="utils.js"></script>
-        
     </body>
 </html>

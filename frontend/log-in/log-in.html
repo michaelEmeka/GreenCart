@@ -11,6 +11,8 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="log-in.css" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script type="module" src="log-in.js" defer></script>
     </head>
     <body>
         <div class="container">
@@ -43,21 +45,20 @@
             </nav>
 
             <!-- LOGIN SECTION -->
-
-            <form action="">
+            <form action="" id="log-inForm" method="POST">
                 <h3>Login to Your Account</h3>
 
                 <label for="">Email address</label><br />
-                <input type="email" /><br />
+                <input type="email" name="email"/><br />
 
                 <label for="">Password</label><br />
-                <input type="text" /><br />
+                <input type="password" name="password"/><br />
 
-                <button>Login</button>
+                <button id="subitBtn">Login</button>
 
                 <a href="">Forgot password?</a>
 
-                <p>No account? <a href="">Sign up</a></p>
+                <p>No account? <a href="../sign-up/sign-up.html">Sign up</a></p>
             </form>
 
             <footer>
@@ -108,5 +109,7 @@
                 </div>
             </footer>
         </div>
+
+        <script src="utils.js"></script>
     </body>
 </html>

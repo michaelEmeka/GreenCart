@@ -1,6 +1,7 @@
 //IMPORTs
 import { API_URL, WEB_URL } from "../base.js";
 
+
 //Variables Initialization(DOM)
 const signupForm = document.getElementById("sign-upForm");
 const otpForm = document.getElementById("otp-Form");
@@ -27,7 +28,7 @@ signupForm.addEventListener("submit", async (event) => {
 
         console.log(response.status);
 
-        if (response.status === 200) {
+        if (response.status === 201) {
             navButton[1].click();
             console.log("Success:", response.data);
         }

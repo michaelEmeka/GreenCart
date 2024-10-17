@@ -6,7 +6,7 @@ const send = document.getElementById("submitBtn");
 const navButton = document.getElementsByClassName("form-nav"), contentPages = document.getElementsByTagName("form");
 
 //Variable Initialization(Local)
-let busName = inp[0], email = inp[1], passw = inp[2], passwConfirm = inp[3];
+let firstName = inp[0], email = inp[2], passw = inp[3], passwConfirm = inp[4];
 
 let validN, validE, validP, validP2, validPass;
 validE, validN, validP, validP2, validPass = false;
@@ -59,7 +59,7 @@ email.addEventListener("input", function () {
     }
 });
 
-busName.addEventListener("input", function () {
+firstName.addEventListener("input", function () {
     validN = NullValidate(this);
     validateAll();
 });
