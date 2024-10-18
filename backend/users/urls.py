@@ -17,5 +17,5 @@ urlpatterns = [
         "set-new-password/", views.SetUserPassword.as_view(), name="set_user_password"
     ),
     path("logout/", views.LogoutUser.as_view(), name="logout_user"),
-    path("test/", views.TestView.as_view(), name="test")
+    path("user-detail/", views.UserDetail.as_view(), name="user_detail"),
 ]

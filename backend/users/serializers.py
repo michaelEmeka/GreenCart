@@ -148,3 +148,8 @@ class SetUserPasswordSerializer(serializers.Serializer):
             return user
         except Exception as e:
             raise AuthenticationFailed("Reset link is invalid or has expired")
+
+class UserDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["email", "first_name", "last_name", "address", "phone", "interest_tags"]
