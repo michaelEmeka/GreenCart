@@ -1,3 +1,19 @@
+//HAMBUGER MENU
+const hambugerMenu = document.querySelector(".hambugerbtn");
+const navList = document.querySelector(".nav-list");
+const closeBtn = document.querySelector(".closebtn");
+
+hambugerMenu.addEventListener("click", () => {
+    navList.classList.toggle("active");
+    console.log("Hi");
+    //navList.style.display = "None"
+});
+
+closeBtn.addEventListener("click", () => {
+    navList.classList.toggle("active");
+    console.log("Hi");
+});
+
 const form = document.getElementById("log-inForm");
 const inp = form.querySelectorAll("input");
 const send = document.getElementById("subitBtn");

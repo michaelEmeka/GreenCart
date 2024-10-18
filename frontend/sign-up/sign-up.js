@@ -1,6 +1,6 @@
+
 //IMPORTs
 import { API_URL, WEB_URL } from "../base.js";
-
 
 //Variables Initialization(DOM)
 const signupForm = document.getElementById("sign-upForm");
@@ -93,11 +93,11 @@ document
         const endpoint = `${API_URL}/api/v1/auth/resend-otp/`;
         console.log(userEmail);
         if (!userEmail) {
-            console.log(userEmail)
+            console.log(userEmail);
             console.error("No email in memory");
             return;
         }
-        
+
         await axios
             .post(endpoint, JSON.stringify({ email: userEmail }), {
                 headers: {
