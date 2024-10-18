@@ -18,7 +18,11 @@ nav {
     align-items: center;
     padding: 25px 0;
     gap: 5rem;
-    border-bottom: 1px solid #A3BFA1;
+    border-bottom: 1px solid #a3bfa1;
+}
+
+.nav-list {
+    display: flex;
 }
 
 nav ul {
@@ -30,23 +34,21 @@ nav ul {
 
 nav ul li {
     list-style: none;
-    color: #1C1C1C;
+    color: #1c1c1c;
 }
 
-
-nav a{
+nav a {
     text-decoration: none;
     font-weight: 500;
     font-size: 16px;
-    color: #1C1C1C;
+    color: #1c1c1c;
 }
 
-nav ul li a:hover, nav ul li a:active {
+nav ul li a:hover,
+nav ul li a:active {
     color: #217103;
     transition: ease-in-out 500ms;
 }
-
-
 
 nav .cta a {
     border: none;
@@ -55,10 +57,9 @@ nav .cta a {
 }
 
 nav .cta .sign-up {
-     width: 111px;
-     margin-right: 5px;
-    background-color: #A3BFA1;
-
+    width: 111px;
+    margin-right: 5px;
+    background-color: #a3bfa1;
 }
 
 nav .cta .login {
@@ -67,20 +68,34 @@ nav .cta .login {
     color: white;
 }
 
-nav #hambugerbtn {
+nav .hambugerbtn,
+nav .closebtn {
     width: 30px;
     height: 30px;
     display: none;
 }
 
-nav #hambugerbtn .bar {
+nav .hambugerbtn .bar,
+nav .closebtn .bar {
     width: 25px;
     height: 3px;
     margin: 4px;
     border-radius: 8px;
-    background-color: #1C1C1C;
-
+    background-color: #1c1c1c;
 }
+
+nav .closebtn .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+nav .closebtn .bar:nth-child(2) {
+    opacity: 0;
+}
+
+nav .closebtn .bar:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
 
 
 /* LOGIN SECTION */
@@ -237,28 +252,48 @@ form p a{
     nav img {
         margin-left: -12px;
     }
-    nav ul, nav .cta {
+
+    .nav-list {
         position: fixed;
-        width: 100%;
-        height: 100vh;
-        top: 10%;
-        left: 0;
-        text-align: center;
-        display: none;
-        line-height: 70px;
-        background-color: #F5F5F5;
-        color: #1C1C1C;
-    }
-
-    nav .cta {
-        display: flex;
         flex-direction: column;
-        display: none;
-
+        background-color: #f5f5f5;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 100%;
+        transition: 500ms;
+        padding: 30px;
+        align-items: flex-start;
+        gap: 40px;
     }
 
-    nav #hambugerbtn {
+    .nav-list.active {
+        left: 0%;
+    }
+
+    nav ul {
+        padding: 10px;
+        margin: 0;
+        width: 100%;
         display: block;
+        
+    }
+
+
+    nav ul li {
+        border-bottom: 1px solid #D9D9D9;
+        padding: 30px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    nav .hambugerbtn,
+    nav .closebtn {
+        display: block;
+    }
+
+    nav .closebtn {
+        margin-left: 90%;
     }
 
     nav {
@@ -266,6 +301,7 @@ form p a{
         border: none;
         padding: 15px;
     }
+
 
     form {
         display: block;

@@ -542,23 +542,20 @@ nav .closebtn .bar:nth-child(3) {
 
     .nav-list {
         position: fixed;
-        width: 100%;
+        flex-direction: column;
+        background-color: #f5f5f5;
+        width: 100vw;
         height: 100vh;
         top: 0;
-        left: 0;
-        disply: none;
-        line-height: 70px;
-        background-color: #f5f5f5;
-        color: #1c1c1c;
-        text-align: center;
-        padding: 15px;
-        padding-top: 25px;
-        text-align: left;
+        left: 100%;
+        transition: 500ms;
+        padding: 30px;
+        align-items: flex-start;
+        gap: 40px;
     }
 
-    .active {
-        left: 100%;
-        transition: 2s;
+    .nav-list.active {
+        left: 0%;
     }
 
     nav ul {
@@ -566,10 +563,15 @@ nav .closebtn .bar:nth-child(3) {
         margin: 0;
         width: 100%;
         display: block;
+        
     }
 
-    nav ul li:hover {
-        background-color: #a3bfa1;
+
+    nav ul li {
+        border-bottom: 1px solid #D9D9D9;
+        padding: 30px 0;
+        display: flex;
+        align-items: center;
     }
 
     nav .hambugerbtn,
@@ -578,16 +580,16 @@ nav .closebtn .bar:nth-child(3) {
     }
 
     nav .closebtn {
-        margin-left: 80%;
+        margin-left: 90%;
     }
-
-    /* HERO SECTION */
 
     nav {
         margin: 0;
         border: none;
         padding: 15px;
     }
+
+    /* HERO SECTION */
 
     .hero-container {
         display: block;
