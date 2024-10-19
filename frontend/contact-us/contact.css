@@ -26,18 +26,11 @@ body {
 }
 
 nav {
-    width: 95%;
+    width: 90%;
     display: flex;
     margin: 0 auto;
     padding: 20px 0;
     justify-content: space-between;
-    justify-items: center;
-    align-items: center;
-}
-
-#menu {
-    display: flex;
-    gap: 7rem;
     justify-items: center;
     align-items: center;
 }
@@ -74,10 +67,16 @@ nav {
     color: var(--color4);
 }
 
+#user-section {
+    margin-left: 7rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
 #user-section button {
     font-size: 16px;
     font-weight: 500;
-    padding: 12px;
+    padding: 14px;
     border: none;
     border-radius: 8px;
 }
@@ -340,13 +339,21 @@ footer {
 /* Mobile and Tablet View */
 @media screen and (max-width:1026px) {
 
+    nav {
+        width: 95%;
+    }
+    
+    #logo-container {
+        margin-left: -15px;
+    }
+
     #hamburger-button
     , #close-button {
         display: flex;
-        height: 21px;
+        height: 30px;
         width: 30px;
         flex-direction: column;
-        justify-content: space-between;
+        gap: 4px;
         justify-items: center;
         align-items: center;
     }
@@ -357,14 +364,14 @@ footer {
 
     #hamburger-button div
     , #close-button div {
-        width: 100%;
+        width: 25px;
         height: 3px;
         background-color: #1C1C1C;
         border-radius: 8px;
     }
 
     #close-button div:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+        transform: translateY(7px) rotate(45deg);
     }
 
     #close-button div:nth-child(2) {
@@ -372,11 +379,20 @@ footer {
     }
 
     #close-button div:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
+        transform: translateY(-7.5px) rotate(-45deg);
     }
 
     #user-section {
-        display: none;
+        margin-left: 0;
+    }
+
+    #sign-up {
+        background-color: var(--color3);
+    }
+
+    #login {
+        background-color: var(--color2);
+        color: var(--color1);
     }
 
     #nav-links {
@@ -407,7 +423,15 @@ footer {
     }
 
     .nav-link a {
-        font-size: 18px;
+        font-size: 16px;
+    }
+
+    .nav-link.active a:hover {
+        color: var(--color2);
+    }
+
+    .nav-link.active a {
+        color: #1C1C1C;
     }
 
     #main-section {

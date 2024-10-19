@@ -27,7 +27,7 @@ body {
 }
 
 nav {
-    width: 95%;
+    width: 90%;
     display: flex;
     margin: 0 auto;
     padding: 20px 0;
@@ -35,13 +35,6 @@ nav {
     justify-items: center;
     align-items: center;
     border-bottom: 1px solid var(--color3);
-}
-
-#menu {
-    display: flex;
-    gap: 7rem;
-    justify-items: center;
-    align-items: center;
 }
 
 #logo-container {
@@ -59,6 +52,7 @@ nav {
     gap: 4rem;
     justify-items: center;
     align-items: center;
+    margin-left: auto;
 }
 
 .nav-link a {
@@ -77,13 +71,15 @@ nav {
 }
 
 #user-section {
-    margin-left: 200px;
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 7rem;
 }
 
 #user-section button {
     font-size: 16px;
     font-weight: 500;
-    padding: 12px;
+    padding: 14px;
     border: none;
     border-radius: 8px;
 }
@@ -158,6 +154,10 @@ nav {
 .step0 {
     width: 480px;
     height: 370px;
+}
+
+.step5 {
+    border: 2px solid var(--color4);
 }
 
 .step0 img {
@@ -399,6 +399,14 @@ footer {
 /* Mobile and Tablet View */
 @media screen and (max-width:1026px) {
 
+    nav {
+        width: 95%;
+    }
+   
+    #logo-container {
+        margin-left: -15px;
+    }
+
     #hamburger-button
     , #close-button {
         display: flex;
@@ -483,7 +491,7 @@ footer {
     }
 
     .nav-link a {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     #main-section h2 {
