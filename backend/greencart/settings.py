@@ -20,8 +20,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG")
 
 
+#ALLOWED_HOSTS = []
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(" ")
-
 # Email
 
 EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
@@ -85,6 +85,7 @@ WSGI_APPLICATION = "greencart.wsgi.application"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5500",
     "http://127.0.0.1:5500",
+    "https://greencart-gm8q.onrender.com"
 ]
 # PGSQL
 

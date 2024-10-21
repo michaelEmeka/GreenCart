@@ -1,4 +1,4 @@
-import { API_URL, WEB_URL } from "../base.js";
+import { API_URL, WEB_URL } from "../home/base.js";
 
 const cta = document.getElementsByClassName("cta");
 const ref = document.getElementById("ref");

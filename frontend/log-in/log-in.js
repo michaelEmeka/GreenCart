@@ -1,5 +1,5 @@
 //IMPORTs
-import { API_URL, WEB_URL } from "../base.js";
+import { API_URL, WEB_URL } from "../home/base.js";
 
 //Variables Initialization(DOM)
 const loginForm = document.getElementById("log-inForm");
