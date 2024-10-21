@@ -1,8 +1,8 @@
 
 //URLS
 const API_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:8000" : "https://greencart-api.onrender.com"
-const WEB_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:5500" : "https://greencart-gm8q.onrender.com"
-
+const WEB_URL = window.location.hostname != "localhost" ? "http://127.0.0.1:5500" : "https://greencart-gm8q.onrender.com"
+console.log(API_URL)
 //Variables Initialization(DOM)
 const signupForm = document.getElementById("sign-upForm");
 const otpForm = document.getElementById("otp-Form");
