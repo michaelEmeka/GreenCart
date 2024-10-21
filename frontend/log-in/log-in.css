@@ -141,6 +141,7 @@ form button {
     border-radius: 8px;
     margin: 20px 0;
     cursor: pointer;
+    outline: none;
 }
 
 

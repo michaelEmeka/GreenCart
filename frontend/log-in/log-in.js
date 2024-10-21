@@ -12,7 +12,7 @@ loginForm.addEventListener("submit", async (event) => {
 
     const formData = new FormData(loginForm);
     const data = Object.fromEntries(formData.entries());
-    console.log(data); //API POST REQUEST
+    //console.log(data); //API POST REQUEST
     await axios
         .post(endpoint, JSON.stringify(data), {
             headers: {
@@ -28,11 +28,8 @@ loginForm.addEventListener("submit", async (event) => {
         })
         .then((data) => {
             console.log("Success:", data);
-            
-            //store in local storage
-            localStorage.setItem("access", data["access_token"]);
-            localStorage.setItem("refresh", data["refresh_token"]);
-            //window.location.replace(redirect);
+            localStorage.setItem("greencart", JSON.stringify(data));
+            window.location.replace(redirect);
         })
         .catch((error) => {
             console.error("Fetch error:", error);
