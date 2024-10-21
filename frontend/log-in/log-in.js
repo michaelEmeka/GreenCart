@@ -1,6 +1,6 @@
-//IMPORTs
-import { API_URL, WEB_URL } from "../home/base.js";
-
+//URLs
+const API_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:8000" : "https://greencart-api.onrender.com"
+const WEB_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:5500" : "https://greencart-gm8q.onrender.com"
 //Variables Initialization(DOM)
 const loginForm = document.getElementById("log-inForm");
 
