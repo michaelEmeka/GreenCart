@@ -27,7 +27,7 @@ body {
 }
 
 nav {
-    width: 95%;
+    width: 90%;
     display: flex;
     margin: 0 auto;
     padding: 20px 0;
@@ -35,13 +35,6 @@ nav {
     justify-items: center;
     align-items: center;
     border-bottom: 1px solid var(--color3);
-}
-
-#menu {
-    display: flex;
-    gap: 7rem;
-    justify-items: center;
-    align-items: center;
 }
 
 #logo-container {
@@ -77,13 +70,15 @@ nav {
 }
 
 #user-section {
-    margin-left: 200px;
+    margin-left: 7rem;
+    display: flex;
+    gap: 0.5rem;
 }
 
 #user-section button {
     font-size: 16px;
     font-weight: 500;
-    padding: 12px;
+    padding: 14px;
     border: none;
     border-radius: 8px;
 }
@@ -344,6 +339,14 @@ footer {
 /* Mobile and Tablet View */
 @media screen and (max-width:1026px) {
 
+    nav {
+        width: 95%;
+    }
+  
+    #logo-container {
+        margin-left: -15px;
+    }
+
     #hamburger-button
     , #close-button {
         display: flex;
@@ -428,7 +431,7 @@ footer {
     }
 
     .nav-link a {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     #headline {

@@ -43,6 +43,10 @@ nav a {
     color: #1c1c1c;
 }
 
+nav ul li .active {
+    color: #ffd700;
+}
+
 nav ul li a:hover,
 nav ul li a:active {
     color: #217103;
@@ -487,7 +491,7 @@ nav .closebtn .bar:nth-child(3) {
     line-height: 32px;
 }
 
-.footerDiv .ContactUs p {
+.footerDiv .ContactUs p,  .footerDiv .ContactUs label{
     font-size: 14px;
     font-weight: 500;
     color: #1c1c1c;
