@@ -87,7 +87,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5500",
 ]
 # PGSQL
-# postgresql://greencart_user:pDj6GpdwY2cOe6Xpj79cEqCScEE4Y6Ca@dpg-csau71t6l47c73f42sn0-a.oregon-postgres.render.com/greencart
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
