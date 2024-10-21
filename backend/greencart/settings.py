@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-
+import dj_database_url
 from dotenv import load_dotenv
 from datetime import timedelta
 
@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG")
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(" ")
 
 # Email
 
@@ -86,7 +86,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5500",
     "http://127.0.0.1:5500",
 ]
-
+# PGSQL
+# postgresql://greencart_user:pDj6GpdwY2cOe6Xpj79cEqCScEE4Y6Ca@dpg-csau71t6l47c73f42sn0-a.oregon-postgres.render.com/greencart
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -96,7 +97,8 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
+database_url = os.environ.get("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(database_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

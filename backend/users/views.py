@@ -127,7 +127,7 @@ class SetUserPassword(GenericAPIView):
 
 
 class LogoutUser(GenericAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     def post(self, request):
         try:
             refresh_token = request.data["refresh_token"]
