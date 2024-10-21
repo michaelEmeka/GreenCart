@@ -60,7 +60,7 @@ otpForm.addEventListener("submit", async (event) => {
     
     const endpoint = `${API_URL}/api/v1/auth/verify-user/`;
     const redirect = `${WEB_URL}/frontend/log-in/log-in.html`;
-    console.log(endpoint, redirect)
+    
     const formData = new FormData(otpForm);
     const data = Object.fromEntries(formData.entries());
     console.log(data); //API POST REQUEST
@@ -91,6 +91,7 @@ document
     .getElementById("ResendOTP")
     .addEventListener("click", async function ResendOTP() {
         const endpoint = `${API_URL}/api/v1/auth/resend-otp/`;
+        console.log(endpoint);
         console.log(userEmail);
         if (!userEmail) {
             console.log(userEmail);
@@ -103,6 +104,7 @@ document
                 headers: {
                     "Content-Type": "application/json",
                 },
+                timeout: 300000
             })
             .then((response) => {
                 if (response.status != 200) {
