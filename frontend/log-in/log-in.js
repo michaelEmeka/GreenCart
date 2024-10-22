@@ -8,7 +8,7 @@ loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const endpoint = `${API_URL}/api/v1/auth/login/`;
-    const redirect = `${WEB_URL}/frontend/home/index.html`;
+    const redirect = `${WEB_URL}/home/index.html`;
 
     const formData = new FormData(loginForm);
     const data = Object.fromEntries(formData.entries());
