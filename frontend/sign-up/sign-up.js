@@ -60,7 +60,7 @@ otpForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     
     const endpoint = `${API_URL}/api/v1/auth/verify-user/`;
-    const redirect = `${WEB_URL}/frontend/log-in/log-in.html`;
+    const redirect = `${WEB_URL}/log-in/log-in.html`;
     
     const formData = new FormData(otpForm);
     const data = Object.fromEntries(formData.entries());
