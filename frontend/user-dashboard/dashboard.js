@@ -1,6 +1,6 @@
 //URLs
 const API_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:8000" : "https://greencart-api.onrender.com"
-const WEB_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:5500/frontend" : "https://greencart-bsrg.onrender.com"
+const WEB_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:5500/frontend" : "https://greencart-q85r.onrender.com"
 
 const loader = document.getElementById("loader");
 
