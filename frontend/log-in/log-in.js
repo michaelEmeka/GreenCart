@@ -1,6 +1,6 @@
 //URLs
 const API_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:8000" : "https://greencart-api.onrender.com"
-const WEB_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:5500" : "https://greencart-bsrg.onrender.com"
+const WEB_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:5500/frontend" : "https://greencart-bsrg.onrender.com"
 
 //Variables Initialization(DOM)
 const loginForm = document.getElementById("log-inForm");
@@ -43,6 +43,8 @@ loginForm.addEventListener("submit", async (event) => {
             window.location.replace(redirect);
         })
         .catch((error) => {
+            //Hide Loader
+            loader.classList.toggle("active");
             console.error("Fetch error:", error);
         });
 });

@@ -23,7 +23,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     interest_tags = models.ManyToManyField(
         "base.ItemTag", related_name="users", blank=True
     )
-
+    
     objects = CustomUserManager()
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name"]
