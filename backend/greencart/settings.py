@@ -85,7 +85,7 @@ WSGI_APPLICATION = "greencart.wsgi.application"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5500",
     "http://127.0.0.1:5500",
-    "https://greencart-bsrg.onrender.com"
+    "https://greencart-q85r.onrender.com"
 ]
 # PGSQL
 
