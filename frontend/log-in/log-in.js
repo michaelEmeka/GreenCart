@@ -1,8 +1,12 @@
 //URLs
 const API_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:8000" : "https://greencart-api.onrender.com"
 const WEB_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:5500" : "https://greencart-bsrg.onrender.com"
+
 //Variables Initialization(DOM)
 const loginForm = document.getElementById("log-inForm");
+const loader = document.getElementById("loader");
+
+console.log(WEB_URL)
 
 loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -12,6 +16,10 @@ loginForm.addEventListener("submit", async (event) => {
 
     const formData = new FormData(loginForm);
     const data = Object.fromEntries(formData.entries());
+
+    //Display Loader
+    loader.classList.toggle("active");
+
     //console.log(data); //API POST REQUEST
     await axios
         .post(endpoint, JSON.stringify(data), {
@@ -20,6 +28,9 @@ loginForm.addEventListener("submit", async (event) => {
             },
         })
         .then((response) => {
+            //Hide Loader
+            loader.classList.toggle("active");
+
             if (response.status != 200) {
                 console.log(`Error: ${response.status}`);
                 throw new Error("Request failed");

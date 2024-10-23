@@ -10,6 +10,33 @@ body {
     background-color: #F5F5F5;
 }
 
+/* LOADER */
+#loader{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: blue;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#loader.active{
+    display: none;
+}
+
+#loader img{
+    transform: scale(0.15);
+    animation: twirl 1s linear infinite;
+}
+
+@keyframes twirl {
+    from {
+        transform: scale(0.15) rotate(360deg);
+    }
+}
+
 /* NAV SECTION */
 nav {
     margin: 0 70px;

@@ -5,6 +5,8 @@ const WEB_URL = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:550
 const cta = document.getElementsByClassName("cta");
 const ref = document.getElementById("ref");
 //console.log(cta);
+
+//Init Page
 document.addEventListener("DOMContentLoaded", async () => {
     const user = JSON.parse(localStorage.getItem("greencart"));
     if (user) {
