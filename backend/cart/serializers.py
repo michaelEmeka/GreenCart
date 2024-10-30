@@ -4,12 +4,14 @@ from django.urls import reverse
 from rest_framework.exceptions import AuthenticationFailed
 from .models import CartItem, Cart, Checkout
 from users.models import User
-from .payments import initPayment
+from .payments import CashPay
 
 # from .utils import send_email
 
 
 class defaultNull(serializers.Serializer):
+    class Meta:
+        ref_name = 'CartDefaultNull'
     pass
 
 
@@ -67,6 +69,5 @@ class CheckoutSerializer(serializers.ModelSerializer):
             address=validated_data["address"],
             phone=validated_data["phone"],
         )
-
         # print(data)
         return checkout

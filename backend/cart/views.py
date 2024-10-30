@@ -7,7 +7,7 @@ from base.models import Item
 from .serializers import defaultNull, ListOpenCartItemsSerializer, CheckoutSerializer
 from users.models import User
 from django.shortcuts import get_object_or_404
-from .payments import initPayment
+from .payments import CashPay
 from rest_framework import status
 
 class ListOpenCartItems(ListAPIView):
@@ -27,6 +27,8 @@ class ModifyCartItem(GenericAPIView):
     pk: item id
     """
     serializer_class = defaultNull
+    queryset = Cart.objects.all()
+    
     def post(self, request, *args, **kwargs):
         pk = kwargs["pk"]
         action = request.data.get("action")
@@ -82,13 +84,14 @@ class RemoveFromCart(GenericAPIView):
         return Response({"message": "Item does not exist in cart"})
 
 class Checkout(GenericAPIView):
+    serializer_class = CheckoutSerializer
     def post(self, request):
-        serializer = CheckoutSerializer(data=request.data, context={"request": request})
+        serializer = self.serializer_class(data=request.data, context={"request": request})
         if serializer.is_valid(raise_exception=True):
             checkout = serializer.save()
             # send data to payment_gateway
             # payment gateway returns payment link
             # return payment link to user in json format
             # trigger webhook to see if payment successful
-            data = initPayment(checkout, serializer.validated_data["redirect_success"])
+            data = CashPay(checkout, serializer.validated_data["redirect_success"])
             return Response(data, status=status.HTTP_201_CREATED)

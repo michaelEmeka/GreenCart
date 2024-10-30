@@ -1,13 +1,13 @@
 import requests
 import json
 import os
-import uuid
+#import uuid
 from dotenv import load_dotenv
 
 load_dotenv()
 
 
-def initPayment(checkout, redirect):
+def CashPay(checkout, redirect):
     endpoint = 'https://api.flutterwave.com/v3/payments'
     SEC_KEY = os.getenv("FLW_SECRET_KEY")
     data = {
