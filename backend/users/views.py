@@ -13,7 +13,7 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class RegisterUserView(GenericAPIView):
-
+    serializer_class = UserRegisterSerializer
     def post(self, request):
         data = request.data
 
@@ -25,7 +25,7 @@ class RegisterUserView(GenericAPIView):
             )
 
         # Create user for non existent user
-        serializer = UserRegisterSerializer(data=data)
+        serializer = self.serializer_class(data=data)
         if serializer.is_valid():
             user = serializer.save()
             # send email function user['email']
@@ -42,9 +42,10 @@ class RegisterUserView(GenericAPIView):
 
 
 class VerifyUserEmail(GenericAPIView):
+    serializer_class = VerifyUserSerializer
 
     def post(self, request):
-        serializer = VerifyUserSerializer(data=request.data)
+        serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             return Response(serializer.validated_data, status=status.HTTP_200_OK)
 
@@ -52,6 +53,7 @@ class VerifyUserEmail(GenericAPIView):
 
 
 class ResendOTP(GenericAPIView):
+    serializer_class = defaultNull
     def post(self, request):
         email = request.data["email"]
         user = User.objects.filter(email=email).first()
@@ -62,15 +64,17 @@ class ResendOTP(GenericAPIView):
 
 
 class LoginUserView(GenericAPIView):
+    serializer_class = LoginSerializer
     def post(self, request):
-        serializer = LoginSerializer(data=request.data, context={"request": request})
+        serializer = self.serializer_class(data=request.data, context={"request": request})
         serializer.is_valid(raise_exception=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class ResetUserPassword(GenericAPIView):
+    serializer_class = PasswordResetRequestSerializer
     def post(self, request):
-        serializer = PasswordResetRequestSerializer(
+        serializer = self.serializer_class(
             data=request.data, context={"request": request}
         )
         if serializer.is_valid(raise_exception=True):
@@ -88,7 +92,7 @@ class PasswordResetConfirm(GenericAPIView):
         uidb64: encoded user id
         token: password reset token
     """
-
+    serializer_class = defaultNull
     def get(self, request, uidb64, token):
         try:
             user_id = smart_str(urlsafe_base64_decode(uidb64))
@@ -119,15 +123,16 @@ class SetUserPassword(GenericAPIView):
         self: view instance
         request: request object
     """
-
+    serializer_class = SetUserPasswordSerializer
     def patch(self, request):
-        serializer = SetUserPasswordSerializer(data=request.data)
+        serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         return Response({"message": "Password reset successfully"})
 
 
 class LogoutUser(GenericAPIView):
     permission_classes = [IsAuthenticated]
+    
     def post(self, request):
         try:
             refresh_token = request.data["refresh_token"]
@@ -143,8 +148,8 @@ class LogoutUser(GenericAPIView):
 # Get user
 class UserDetail(GenericAPIView):
     permission_classes = [IsAuthenticated]
-    
+    serializer_class = UserDetailSerializer
     def get(self, request):
         user = User.objects.get(id=request.user.id)
-        serializer = UserDetailSerializer(user)
+        serializer = self.serializer_class(user)
         return Response(serializer.data, status=status.HTTP_200_OK)

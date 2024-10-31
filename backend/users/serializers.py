@@ -9,6 +9,10 @@ from django.urls import reverse
 from rest_framework.exceptions import AuthenticationFailed
 from .utils import send_email
 
+class defaultNull(serializers.Serializer):
+    class Meta:
+        ref_name = 'UserDefaultNull'
+    pass
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(max_length=60, min_length=8, write_only=True)
