@@ -14,7 +14,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=30, blank=True, null=True)
     address = models.CharField(max_length=30, blank=True, null=True)
     phone = models.IntegerField(blank=True, null=True)
-    # image = models.CloudinaryField("image")
+    #image = models.CloudinaryField("image")
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_verified = models.BooleanField(default=False)
@@ -23,7 +23,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     interest_tags = models.ManyToManyField(
         "base.ItemTag", related_name="users", blank=True
     )
-
+    
     objects = CustomUserManager()
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name"]

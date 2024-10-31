@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-
+import dj_database_url
 from dotenv import load_dotenv
 from datetime import timedelta
 
@@ -20,8 +20,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG")
 
 
-ALLOWED_HOSTS = []
-
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(" ")
 # Email
 
 EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
@@ -85,7 +85,9 @@ WSGI_APPLICATION = "greencart.wsgi.application"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5500",
     "http://127.0.0.1:5500",
+    "https://greencart-q85r.onrender.com"
 ]
+# PGSQL
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -96,7 +98,8 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
+database_url = os.environ.get("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(database_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -153,16 +156,6 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "users.User"
-
-# Email Client
-
-
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "greencart.ecotrybe@gmail.com"
-EMAIL_HOST_PASSWORD = "mvpgpxbikxmazshl"
 
 # Cloudinary CDN
 CLOUDINARY_STORAGE = {

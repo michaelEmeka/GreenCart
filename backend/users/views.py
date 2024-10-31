@@ -127,7 +127,7 @@ class SetUserPassword(GenericAPIView):
 
 
 class LogoutUser(GenericAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     def post(self, request):
         try:
             refresh_token = request.data["refresh_token"]
@@ -140,14 +140,11 @@ class LogoutUser(GenericAPIView):
         except Exception as e:
             raise e
 
-#Get user
-class TestView(GenericAPIView):
+# Get user
+class UserDetail(GenericAPIView):
     permission_classes = [IsAuthenticated]
-
+    
     def get(self, request):
         user = User.objects.get(id=request.user.id)
-
-        return Response(
-            {"message": f"Hi from backend, {user.first_name}"},
-            status=status.HTTP_200_OK,
-        )
+        serializer = UserDetailSerializer(user)
+        return Response(serializer.data, status=status.HTTP_200_OK)

@@ -16,7 +16,8 @@
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
             rel="stylesheet"
         />
-
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="./dashboard.js" defer></script>
     </head>
 
     <body>
@@ -52,11 +53,11 @@
 
                 <div class="dp menu-dp">
 
-                    <img src="./images/user-dp.png" alt="display photo" loading="lazy" />
+                    <img id="user-dp" src="./images/user-dp.png" alt="display photo" loading="lazy" />
 
                 </div>
 
-                <h2 id="user-name">Emeka Fortune</h2>
+                <h2 id="user-name"></h2>
 
                 <ul id="nav-links">
 
@@ -195,7 +196,7 @@
                                     <path d="M8.33333 35C7.41667 35 6.63194 34.6736 5.97917 34.0208C5.32639 33.3681 5 32.5833 5 31.6667V8.33333C5 7.41667 5.32639 6.63194 5.97917 5.97917C6.63194 5.32639 7.41667 5 8.33333 5H20V8.33333H8.33333V31.6667H20V35H8.33333ZM26.6667 28.3333L24.375 25.9167L28.625 21.6667H15V18.3333H28.625L24.375 14.0833L26.6667 11.6667L35 20L26.6667 28.3333Z" fill="white"/>
                                 </svg>                                    
 
-                                <h3 class="list-name">Log out</h3>
+                                <h3 id="logout" class="list-name">Log out</h3>
 
                             </div>
 
@@ -209,15 +210,15 @@
 
                     <div class="dp footer-dp">
 
-                        <img src="./images/user-dp.png" alt="display photo" loading="lazy" />
+                        <img id="footer-img" src="./images/user-dp.png" alt="display photo" loading="lazy" />
     
                     </div>
 
                     <div id="footer-info">
 
-                        <h3 id="footer-name">Emeka Fortune</h3>
+                        <h3 id="footer-name"></h3>
 
-                        <a href="mailto:emekafortune@gmail.com">emekafortune@gmail.com</a>
+                        <a id="footer-email" href="mailto:emekafortune@gmail.com"></a>
 
                     </div>
 
@@ -227,6 +228,11 @@
 
         </nav>
 
+         <!-- LOADER -->
+         <div id="loader" class="active">
+            <img src="../images/g.png" alt=""/>
+        </div>
+        
         <!--Main Section-->
 
         <section id="main-section">
@@ -235,7 +241,7 @@
 
                 <div id="main-text">
 
-                    <h2>Welcome back, Emeka!</h2>
+                    <h2>Welcome back!</h2>
 
                     <p>Here is your Business activity at a glance</p>
 
@@ -272,7 +278,7 @@
 
                     <p class="highlight-title">Total Exchanges</p>
 
-                    <p class="highlight-figure">75</p>
+                    <p id="total-exchange" class="highlight-figure"></p>
 
                 </div>
 
@@ -286,7 +292,7 @@
 
                     <p class="highlight-title">Total Waste Recycled</p>
 
-                    <p class="highlight-figure">75</p>
+                    <p id="total-recycle" class="highlight-figure"></p>
 
                 </div>
 
@@ -299,7 +305,7 @@
 
                     <p class="highlight-title">Total Earnings</p>
 
-                    <p class="highlight-figure big-screen">₦455,000</p>
+                    <p class="highlight-figure">$255</p>
 
                 </div>
 
@@ -413,7 +419,6 @@
 
         </section>
 
-        <script src="./dashboard.js"></script>
     </body>
 
 </html>

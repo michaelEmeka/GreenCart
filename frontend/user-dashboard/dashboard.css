@@ -25,6 +25,33 @@ body{
     display: flex;
 }
 
+/* LOADER */
+#loader{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#loader.active{
+    display: none;
+}
+
+#loader img{
+    transform: scale(0.15);
+    animation: twirl 1s linear infinite;
+}
+
+@keyframes twirl {
+    from {
+        transform: scale(0.15) rotate(360deg);
+    }
+}
+
+/*NAV*/
 nav {
     position: fixed;
     width: 24vw;
@@ -74,6 +101,7 @@ nav {
 .dp img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
 }
 
 #user-menu h3, 
@@ -113,6 +141,7 @@ nav {
 .footer-dp {
     width: 40px;
     height: 40px;
+    border-radius: 50%;
 }
 
 #footer-name {
