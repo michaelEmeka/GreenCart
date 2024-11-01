@@ -1,0 +1,511 @@
+:root {
+    --color1: #fff;
+    --color2: #217103;
+    --color3: #a3bfa1;
+    --color4: #FFD700;
+    --color5: #D9D9D9;
+    --color6: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+body {
+    background-color: var(--color1);
+}
+
+nav {
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+    padding: 18px 0;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    border-bottom: 1px solid var(--color3);
+}
+
+#logo-container {
+    width: 139px;
+    height: 32px;
+}
+
+#logo-container img {
+    width: 100%;
+    height: 100%;
+}
+
+#nav-links {
+    display: flex;
+    gap: 4rem;
+    justify-items: center;
+    align-items: center;
+    margin-left: auto;
+}
+
+.nav-link a {
+    color: var(--color6);
+    font-size: 16px;
+    font-weight: 500;
+    transition: 500ms;
+}
+
+.nav-link a:hover {
+    color: #217103;
+}
+
+.nav-link.active a {
+    color: var(--color2);
+}
+
+#user-section {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 7rem;
+}
+
+#user-section button {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+}
+
+#listings {
+    background-color: var(--color2);
+    color: var(--color1);
+}
+
+#hamburger-button
+, #close-button {
+    display: none;
+}
+
+/* Main Section */
+#main-section {
+    width: 85%;
+    margin: 50px auto;
+}
+
+#main-section h2 {
+    font-size: 35px;
+    text-align: left;
+    font-weight: 500;
+    color: var(--color2);
+}
+
+#search-section {
+    display: flex;
+    width: 100%;
+    gap: 1.5rem;
+    margin-top: 20px;
+    align-items: center;
+}
+
+#search-bar {
+    width: 60%;
+    height: 58px;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+    background-color: #D1DFD0BF;
+    border-radius: 8px;
+    padding: 0 25px;
+}
+
+#search-bar p,
+ #filter p {
+    font-weight: 600;
+    color: #1C1C1C;
+    font-size: 18px;
+}
+
+#filter {
+    display: flex;
+    height: 56px;
+    padding: 24px;
+    border-radius: 8px;
+    gap: 10px;
+    border: 1px solid var(--color6);
+    align-items: center;
+    justify-items: center;
+}
+
+#lists {
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.list {
+    height: 250px;
+    width: 100%;
+    border: 2px solid var(--color2);
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+}
+
+.list-image {
+    height: 100%;
+    width: 250px;
+}
+
+.list-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.list-text {
+    display: flex;
+    flex-direction: column;
+    height: 75%;
+    justify-content: space-between;
+    text-align: left;
+    margin: auto 0;
+}
+
+.list-text h3,
+.pricing {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color2);
+}
+
+.description {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+.description span {
+    font-weight: 500;
+}
+
+.add-to-cart {
+    background-color: var(--color4);
+    padding: 14px;
+    display: flex;
+    gap: 10px;
+    border-radius: 8px;
+    height: 52px;
+    align-self: flex-end;
+    margin: 0 0 32.5px 32.5px;
+    align-items: center;
+}
+
+.add-to-cart p {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#list-item {
+    justify-self: center;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-items: center;   
+    margin-bottom: 50px;
+}
+
+#list-item h3 {
+    font-size: 28px;
+    color: var(--color2);
+    font-weight: 700;
+}
+
+#list-item button {
+    background-color: var(--color3);
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/*Footer Section*/
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    background-color: white;
+}
+
+#footer-main {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+}
+
+#business-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#business-info p, 
+#business-info label, 
+#business-info input, 
+.footer-link {
+    font-size: 14px;
+    text-align: left;
+    line-height: 26px;
+    font-weight: 500;
+    color: #1C1C1C;
+}
+
+.footer-part h3 {
+    color: var(--color2);
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.footer-part.about{
+    width: 250px;
+}
+
+.footer-part.about h3 {
+    color: var(--color6);
+}
+
+.footer-part.about p {
+    max-width: 270px;
+}
+
+#footer-links {
+    margin-top: 20px;
+}
+
+.footer-link {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.footer-link::marker {
+    color: var(--color2);
+}
+
+.footer-link a {
+    color: var(--color2);
+    font-weight: 500;
+}
+
+.footer-part.contact p{
+    margin-bottom: 10px;
+}
+
+.footer-part.contact p a{
+    color: var(--color4);
+}
+
+#social-links {
+    width: 175px;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+
+.footer-part.legal p {
+    margin-bottom: 10px;
+    min-width: 110px;
+}
+
+.footer-part.legal a {
+    font-weight: 500;
+    font-size: 14px;
+    color: #1C1C1C;
+}
+
+.footer-part.news p {
+    margin-bottom: 10px;
+}
+
+.footer-part.news input {
+    margin: 7px 0 10px;
+    background-color: #D9D9D9;
+    border: none;
+    height: 40px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+#copyright {
+    display: flex;
+    width: fit-content;
+    margin: 30px auto 5px;
+    justify-items: center;
+    align-items: center;
+}
+
+#copyright svg {
+    margin-right: 10px;
+}
+
+#copyright p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+/*Mobile And Tablet View*/
+@media screen and (max-width:1026px) {
+
+    nav {
+        width: 95%;
+    }
+   
+    #logo-container {
+        margin-left: -15px;
+    }
+
+    #hamburger-button
+    , #close-button {
+        display: flex;
+        height: 30px;
+        width: 30px;
+        flex-direction: column;
+        gap: 4px;
+        justify-items: center;
+        align-items: center;
+    }
+
+    #close-button {
+        margin-left: 80vw;
+    }
+
+    #hamburger-button div
+    , #close-button div {
+        width: 100%;
+        height: 3px;
+        background-color: #1C1C1C;
+        border-radius: 8px;
+    }
+
+    #close-button div:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    #close-button div:nth-child(2) {
+        opacity: 0;
+    }
+
+    #close-button div:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    .nav-link.active a {
+        color: #1C1C1C;
+    }
+
+    .nav-link.active a:hover {
+        color: var(--color2);
+    }
+
+    #user-section {
+        margin-left: 0;
+    }
+
+    #sign-up {
+        background-color: var(--color3);
+    }
+
+    #login {
+        background-color: var(--color2);
+        color: var(--color1);
+    }
+
+    #nav-links {
+        position: fixed;
+        flex-direction: column;
+        background-color: #f5f5f5;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 100%;
+        transition: 500ms;
+        padding: 30px;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    #nav-links.active {
+        left: 0%;
+    }
+
+    .nav-link {
+        width: 88%;
+        text-align: left;
+        border-bottom: 1px solid #D9D9D9;
+        display: flex;
+        align-items: center;
+        padding-bottom: 40px;
+    }
+
+    .nav-link a {
+        font-size: 16px;
+    }
+
+    #main-section h2 {
+        font-size: 25px;
+    }
+    
+    #search-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    #search-bar {
+        width: 100%; 
+        padding: 0 20px;
+    }
+
+    #filter {
+        height: 44px;
+        padding: 0 14px;
+    }
+
+    #filter p {
+        font-size: 17.5px;
+    }
+
+    #list-item {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #business-info {
+        flex-direction: column;
+    }
+
+    .footer-part {
+        margin-top: 25px;
+    }
+
+    .footer-part.about p {
+        width: 500px;
+    }
+
+    .footer-part.news input {
+        width: 32%;
+    }
+}
