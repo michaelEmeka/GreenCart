@@ -12,11 +12,9 @@ schema_view = get_schema_view(
         #terms_of_service=
         contact=openapi.Contact(email="greencart.ecotrybe@gmail.com"),
         license=openapi.License(name="BSD License"),
-        public=True,
-        permission_classes=(permissions.AllowAny, ),
-    )
+        public=True)
 )
-
+#openapi.Info()
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/", include("base.urls")),
